@@ -19,6 +19,11 @@
   <button id="bTable">table view</button>
   <span id="legend"></span><span class="meta" id="zoomlabel">zoom 1.0x</span>
 </div>
+<div class="controls" id="timebar" style="display:none">
+  <button id="bPlay">play</button>
+  <input type="range" id="yslider" min="0" max="0" value="0">
+  <span class="meta" id="ylabel"></span>
+</div>
 <div id="stage">
   <canvas id="cv"></canvas>
   <div id="tooltip"></div>
@@ -105,6 +110,34 @@ function renderTable() {
     renderTable();
   });
 }
+if (data.years && data.years.length > 1) {
+  const bar = document.getElementById('timebar');
+  const sl = document.getElementById('yslider');
+  const yl = document.getElementById('ylabel');
+  const bPlay = document.getElementById('bPlay');
+  bar.style.display = 'flex';
+  sl.max = data.years.length - 1;
+  sl.value = data.years.length - 1;
+  yl.textContent = data.years[data.years.length - 1];
+  let playing = null;
+  const setY = i => {
+    yl.textContent = data.years[i];
+    tm.setYear(i);
+    if (tableOn) renderTable();
+  };
+  sl.oninput = () => { setY(+sl.value); };
+  bPlay.onclick = () => {
+    if (playing) { clearInterval(playing); playing = null; bPlay.textContent = 'play'; bPlay.classList.remove('on'); return; }
+    if (+sl.value >= data.years.length - 1) sl.value = 0;
+    bPlay.textContent = 'stop'; bPlay.classList.add('on');
+    playing = setInterval(() => {
+      if (+sl.value >= data.years.length - 1) { clearInterval(playing); playing = null; bPlay.textContent = 'play'; bPlay.classList.remove('on'); return; }
+      sl.value = +sl.value + 1;
+      setY(+sl.value);
+    }, 650);
+  };
+}
+
 bTable.onclick = () => {
   tableOn = !tableOn;
   bTable.classList.toggle('on', tableOn);

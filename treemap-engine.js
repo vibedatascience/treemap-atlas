@@ -238,6 +238,39 @@ export class Treemap {
 
   reset() { this.tx = 0; this.ty = 0; this.scale = 1; this.draw(); this.onZoom && this.onZoom(1); }
 
+  animateLayout(mutate) {
+    const prev = new Map(this.leaves.map(n => [n, { x: n.x, y: n.y, w: n.w, h: n.h }]));
+    mutate();
+    this.buildTree();
+    this.layout();
+    const targets = new Map(this.leaves.map(n => [n, { x: n.x, y: n.y, w: n.w, h: n.h }]));
+    const t0 = performance.now();
+    const step = t => {
+      const p = Math.min(1, (t - t0) / 550);
+      const e = p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
+      for (const n of this.leaves) {
+        const a = prev.get(n), b = targets.get(n);
+        if (a && b) {
+          n.x = a.x + (b.x - a.x) * e; n.y = a.y + (b.y - a.y) * e;
+          n.w = a.w + (b.w - a.w) * e; n.h = a.h + (b.h - a.h) * e;
+        } else if (b) { n.x = b.x; n.y = b.y; n.w = b.w; n.h = b.h; }
+      }
+      this.draw();
+      if (p < 1) requestAnimationFrame(step);
+      else { for (const n of this.leaves) { const b = targets.get(n); if (b) Object.assign(n, b); } this.draw(); }
+    };
+    requestAnimationFrame(step);
+  }
+
+  setYear(idx) {
+    if (!this.data.years) return;
+    this.animateLayout(() => {
+      for (const it of this.data.items) {
+        if (it.values) it.value = it.values[idx] != null ? it.values[idx] : 0;
+      }
+    });
+  }
+
   setColorMode(m) { this.colorMode = m; this.draw(); }
 
   setGrouped(g) {
