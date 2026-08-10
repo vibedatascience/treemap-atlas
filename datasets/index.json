@@ -167,6 +167,30 @@
    "source": "Energy Institute Statistical Review via OWID",
    "source_url": "https://ourworldindata.org/grapher/oil-production-by-country",
    "category": "planet"
+  },
+  {
+   "id": "nukes",
+   "title": "Nuclear warheads",
+   "unit": "warheads",
+   "source": "Federation of American Scientists via OWID ETL",
+   "source_url": "https://ourworldindata.org/grapher/nuclear-warhead-inventories",
+   "category": "politics"
+  },
+  {
+   "id": "space",
+   "title": "Objects launched into space",
+   "unit": "objects",
+   "source": "UNOOSA via OWID ETL",
+   "source_url": "https://ourworldindata.org/grapher/cumulative-number-of-objects-launched-into-outer-space",
+   "category": "science"
+  },
+  {
+   "id": "meat",
+   "title": "Meat production",
+   "unit": "tonnes",
+   "source": "FAOSTAT via OWID ETL",
+   "source_url": "https://ourworldindata.org/grapher/meat-production-tonnes",
+   "category": "planet"
   }
  ]
 }
