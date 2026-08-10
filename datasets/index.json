@@ -95,6 +95,22 @@
    "source": "WHO provisional measles data via TidyTuesday 2025-06-24",
    "source_url": "https://github.com/rfordatascience/tidytuesday/tree/main/data/2025/2025-06-24",
    "category": "health"
+  },
+  {
+   "id": "wc2026",
+   "title": "World Cup 2026 goals",
+   "unit": "goals",
+   "source": "Wikipedia goalscorer data (FIFA player statistics), Aug 2026",
+   "source_url": "https://en.wikipedia.org/wiki/2026_FIFA_World_Cup",
+   "category": "sport"
+  },
+  {
+   "id": "epl",
+   "title": "Premier League 2025-26 goals",
+   "unit": "goals",
+   "source": "Wikipedia: 2025-26 Premier League season",
+   "source_url": "https://en.wikipedia.org/wiki/2025%E2%80%9326_Premier_League",
+   "category": "sport"
   }
  ]
 }
