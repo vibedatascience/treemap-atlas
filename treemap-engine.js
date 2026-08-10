@@ -27,7 +27,7 @@ export class Treemap {
         groups.get(p).push(it);
       }
       this.root = { children: [...groups.entries()].map(([name, ch]) => ({
-        name, children: ch, value: ch.reduce((s, d) => s + d.value, 0)
+        name, children: [...ch].sort((a, b) => b.value - a.value), value: ch.reduce((s, d) => s + d.value, 0)
       })).sort((a, b) => b.value - a.value) };
     } else {
       this.root = { children: [...items].sort((a, b) => b.value - a.value) };
