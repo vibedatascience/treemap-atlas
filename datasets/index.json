@@ -119,6 +119,30 @@
    "source": "Ethnologue 2025 via Wikipedia",
    "source_url": "https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers",
    "category": "people"
+  },
+  {
+   "id": "books",
+   "title": "Best-selling books",
+   "unit": "copies sold",
+   "source": "Wikipedia: List of best-selling books",
+   "source_url": "https://en.wikipedia.org/wiki/List_of_best-selling_books",
+   "category": "culture"
+  },
+  {
+   "id": "music",
+   "title": "Best-selling music artists",
+   "unit": "certified units",
+   "source": "Wikipedia: List of best-selling music artists",
+   "source_url": "https://en.wikipedia.org/wiki/List_of_best-selling_music_artists",
+   "category": "culture"
+  },
+  {
+   "id": "games",
+   "title": "Best-selling video games",
+   "unit": "copies sold",
+   "source": "Wikipedia: List of best-selling video games",
+   "source_url": "https://en.wikipedia.org/wiki/List_of_best-selling_video_games",
+   "category": "culture"
   }
  ]
 }
