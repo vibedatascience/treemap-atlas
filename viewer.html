@@ -16,7 +16,7 @@
   <button id="bCat" class="on">color by category</button>
   <button id="bGroup" class="on">group by category</button>
   <button id="bReset">reset view</button>
-  <span class="meta" id="zoomlabel">zoom 1.0x</span>
+  <span id="legend"></span><span class="meta" id="zoomlabel">zoom 1.0x</span>
 </div>
 <div id="stage">
   <canvas id="cv"></canvas>
@@ -51,8 +51,16 @@ const tip = document.getElementById('tooltip');
 
 tm.onHover = (n, x, y) => {
   if (!n) { tip.style.display = 'none'; return; }
-  const pct = (100 * n.value / total).toFixed(2);
-  tip.innerHTML = `${n.name}<br><span class="v">${fmtTotal(n.value)} ${data.unit} \u00b7 ${pct}%</span>`;
+  const pct = (100 * n.value / total).toFixed(3);
+  const rank = tm.rank.get(n);
+  const grp = n.parent ? `<span class="k">group</span> ${n.parent}<br>` : '';
+  const note = n.note ? `<span class="k">in</span> ${n.note}<br>` : '';
+  tip.innerHTML = `<b>${n.name}</b><br>`
+    + `<span class="k">value</span> ${fmtTotal(n.value)} ${data.unit}<br>`
+    + `<span class="k">share</span> ${pct}%<br>`
+    + `<span class="k">rank</span> ${rank} of ${tm.n}<br>`
+    + note + grp
+    + `<span class="k">source</span> ${data.source}`;
   tip.style.display = 'block';
   tip.style.left = Math.min(x + 14, cv.clientWidth - 180) + 'px';
   tip.style.top = (y + 14) + 'px';
@@ -66,6 +74,21 @@ bCat.onclick = () => { tm.setColorMode('category'); bCat.classList.add('on'); bF
 const bGroup = document.getElementById('bGroup');
 bGroup.onclick = () => { const g = !bGroup.classList.contains('on'); bGroup.classList.toggle('on', g); tm.setGrouped(g); };
 document.getElementById('bReset').onclick = () => tm.reset();
+const lg = document.getElementById('legend');
+function buildLegend() {
+  lg.innerHTML = '';
+  if (tm.colorMode === 'flat') return;
+  for (const [cat, col] of tm.catColor) {
+    const e = document.createElement('span');
+    e.className = 'lg';
+    e.innerHTML = `<span class="sw" style="background:${col}"></span>${cat}`;
+    lg.appendChild(e);
+  }
+}
+buildLegend();
+const oldFlat = bFlat.onclick, oldCat = bCat.onclick;
+bFlat.onclick = () => { oldFlat(); buildLegend(); };
+bCat.onclick = () => { oldCat(); buildLegend(); };
 addEventListener('resize', () => tm.resize());
 </script>
 </body>

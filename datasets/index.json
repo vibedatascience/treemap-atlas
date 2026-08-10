@@ -7,8 +7,26 @@
    "source": "World Bank 2024"
   },
   {
+   "id": "cities",
+   "title": "2,000 biggest cities",
+   "unit": "people",
+   "source": "simplemaps"
+  },
+  {
    "id": "gdp",
    "title": "GDP by country",
+   "unit": "USD",
+   "source": "World Bank 2024"
+  },
+  {
+   "id": "exports",
+   "title": "Exports",
+   "unit": "USD",
+   "source": "World Bank 2024"
+  },
+  {
+   "id": "military",
+   "title": "Military spending",
    "unit": "USD",
    "source": "World Bank 2024"
   },
@@ -23,6 +41,12 @@
    "title": "Energy consumption",
    "unit": "TWh",
    "source": "OWID 2025"
+  },
+  {
+   "id": "tourism",
+   "title": "Tourist arrivals",
+   "unit": "arrivals",
+   "source": "World Bank 2020"
   }
  ]
 }

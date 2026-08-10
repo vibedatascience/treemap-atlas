@@ -77,3 +77,8 @@ header.site .tag { font-size: 12px; color: var(--slate); }
 .card .info .t { font-size: 14px; font-weight: 600; }
 .card .info .s { font-size: 11px; color: var(--slate); margin-top: 3px; }
 footer { padding: 16px 24px; font-size: 11px; color: var(--slate); border-top: 1px solid var(--line); }
+
+#legend { display: flex; gap: 10px; flex-wrap: wrap; font-size: 11px; color: var(--slate); align-items: center; }
+#legend .lg { display: inline-flex; align-items: center; gap: 4px; }
+#legend .sw { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+#tooltip .k { color: #94a3b8; display: inline-block; min-width: 52px; }

@@ -32,6 +32,10 @@ export class Treemap {
       this.root = { children: [...items].sort((a, b) => b.value - a.value) };
     }
     this.root.value = this.root.children.reduce((s, d) => s + d.value, 0);
+    const sorted = [...items].sort((a, b) => b.value - a.value);
+    this.rank = new Map(sorted.map((d, i) => [d, i + 1]));
+    this.total = sorted.reduce((s, d) => s + d.value, 0);
+    this.n = sorted.length;
   }
 
   squarify(nodes, x, y, w, h) {
@@ -136,10 +140,13 @@ export class Treemap {
       for (const g of this.root.children) {
         const ph = g.h * s, pw = g.w * s;
         if (pw > 60 && ph > 30) {
-          ctx.fillStyle = '#0f172a';
-          const fs = Math.min(13 / s, 15);
-          ctx.font = `600 ${fs}px ui-monospace, monospace`;
-          ctx.fillText(g.name.toUpperCase(), g.x + 3 / s, g.y + fs, g.w - 6 / s);
+          if (s < 3.5) {
+            ctx.fillStyle = '#0f172a';
+            const fs = Math.min(13 / s, 15);
+            ctx.font = `600 ${fs}px ui-monospace, monospace`;
+            const pct = (100 * g.value / this.total).toFixed(1);
+            ctx.fillText(`${g.name.toUpperCase()} ${pct}%`, g.x + 3 / s, g.y + fs, g.w - 6 / s);
+          }
         }
       }
     }
@@ -176,8 +183,8 @@ export class Treemap {
     c.addEventListener('pointerleave', () => { dragging = false; this.hovered = null; this.draw(); this.onHover && this.onHover(null); });
     c.addEventListener('wheel', e => {
       e.preventDefault();
-      const f = e.deltaY < 0 ? 1.15 : 1 / 1.15;
-      const ns = Math.min(80, Math.max(0.5, this.scale * f));
+      const f = Math.pow(2, -e.deltaY * 0.0012);
+      const ns = Math.min(300, Math.max(0.8, this.scale * f));
       const r = ns / this.scale;
       this.tx = e.offsetX - r * (e.offsetX - this.tx);
       this.ty = e.offsetY - r * (e.offsetY - this.ty);
@@ -189,13 +196,13 @@ export class Treemap {
 
   zoomTo(node) {
     const W = this.canvas.width / devicePixelRatio, H = this.canvas.height / devicePixelRatio;
-    const target = Math.min(80, 0.7 * Math.min(W / node.w, H / node.h));
+    const target = Math.min(280, 0.85 * Math.min(W / node.w, H / node.h));
     const cx = node.x + node.w / 2, cy = node.y + node.h / 2;
     const s0 = this.scale, tx0 = this.tx, ty0 = this.ty;
     const s1 = target, tx1 = W / 2 - s1 * cx, ty1 = H / 2 - s1 * cy;
     const t0 = performance.now();
     const step = t => {
-      const p = Math.min(1, (t - t0) / 350), e = 1 - Math.pow(1 - p, 3);
+      const p = Math.min(1, (t - t0) / 700), e = p < 0.5 ? 4*p*p*p : 1 - Math.pow(-2*p+2, 3)/2;
       this.scale = s0 + (s1 - s0) * e;
       this.tx = tx0 + (tx1 - tx0) * e;
       this.ty = ty0 + (ty1 - ty0) * e;
