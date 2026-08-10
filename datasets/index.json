@@ -174,7 +174,7 @@
    "unit": "warheads",
    "source": "Federation of American Scientists via OWID ETL",
    "source_url": "https://ourworldindata.org/grapher/nuclear-warhead-inventories",
-   "category": "politics"
+   "category": "owid"
   },
   {
    "id": "space",
@@ -182,7 +182,7 @@
    "unit": "objects",
    "source": "UNOOSA via OWID ETL",
    "source_url": "https://ourworldindata.org/grapher/cumulative-number-of-objects-launched-into-outer-space",
-   "category": "science"
+   "category": "owid"
   },
   {
    "id": "meat",
@@ -190,7 +190,39 @@
    "unit": "tonnes",
    "source": "FAOSTAT via OWID ETL",
    "source_url": "https://ourworldindata.org/grapher/meat-production-tonnes",
-   "category": "planet"
+   "category": "owid"
+  },
+  {
+   "id": "cumco2",
+   "title": "Cumulative CO2 since 1750",
+   "unit": "t CO2",
+   "source": "Global Carbon Budget via OWID ETL",
+   "source_url": "https://ourworldindata.org/grapher/cumulative-co-emissions",
+   "category": "owid"
+  },
+  {
+   "id": "solarcap",
+   "title": "Installed solar capacity",
+   "unit": "GW",
+   "source": "IRENA via OWID ETL",
+   "source_url": "https://ourworldindata.org/grapher/installed-solar-pv-capacity",
+   "category": "owid"
+  },
+  {
+   "id": "plastic",
+   "title": "Ocean plastic emissions",
+   "unit": "% of global",
+   "source": "Meijer et al. via OWID ETL",
+   "source_url": "https://ourworldindata.org/grapher/share-of-global-plastic-waste-emitted-to-the-ocean",
+   "category": "owid"
+  },
+  {
+   "id": "ai",
+   "title": "Large-scale AI systems",
+   "unit": "systems",
+   "source": "Epoch AI via OWID ETL",
+   "source_url": "https://ourworldindata.org/grapher/cumulative-number-of-large-scale-ai-systems-by-country",
+   "category": "owid"
   }
  ]
 }
