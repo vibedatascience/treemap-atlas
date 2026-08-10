@@ -126,23 +126,35 @@ export class Treemap {
         ctx.fillRect(n.x, n.y, n.w, n.h);
       }
       const pw = n.w * s, ph = n.h * s;
-      if (pw > 34 && ph > 22) {
-        let fs = Math.min(13, Math.max(9, Math.sqrt(pw * ph) / 7)) / s;
+      if (pw > 26 && ph > 14) {
+        const maxW = n.w - 8 / s;
+        let fs = Math.min(13, Math.max(7, Math.sqrt(pw * ph) / 6.5)) / s;
         ctx.font = `${fs}px ui-monospace, monospace`;
         let tw = ctx.measureText(n.name).width;
-        const maxW = n.w - 8 / s;
-        if (tw > maxW) {
-          fs = Math.max(8 / s, fs * maxW / tw);
-          ctx.font = `${fs}px ui-monospace, monospace`;
-          tw = ctx.measureText(n.name).width;
+        let lines = [n.name];
+        if (tw > maxW && n.name.includes(' ') && n.h > fs * 3) {
+          const words = n.name.split(' ');
+          let best = null;
+          for (let k = 1; k < words.length; k++) {
+            const a = words.slice(0, k).join(' '), b = words.slice(k).join(' ');
+            const w2 = Math.max(ctx.measureText(a).width, ctx.measureText(b).width);
+            if (!best || w2 < best.w) best = { w: w2, lines: [a, b] };
+          }
+          if (best && best.w <= maxW) { lines = best.lines; tw = best.w; }
         }
-        const fits = tw <= maxW && fs * s >= 8 && n.h > fs * 1.6;
-        if (fits) {
+        if (tw > maxW) {
+          fs = Math.max(7 / s, fs * maxW / tw);
+          ctx.font = `${fs}px ui-monospace, monospace`;
+          tw = Math.max(...lines.map(l => ctx.measureText(l).width));
+        }
+        const lineH = fs * 1.15;
+        const needH = lineH * lines.length + fs * 0.4;
+        if (tw <= maxW && fs * s >= 6.5 && n.h > needH) {
           ctx.fillStyle = '#ffffff';
-          ctx.fillText(n.name, n.x + 4 / s, n.y + fs + 3 / s);
-          if (n.h > fs * 3 && ph > 40) {
+          lines.forEach((l, li) => ctx.fillText(l, n.x + 4 / s, n.y + fs + 3 / s + li * lineH));
+          if (n.h > needH + fs * 1.3 && ph > 30) {
             ctx.font = `${fs * 0.82}px ui-monospace, monospace`;
-            ctx.fillText(this.fmt(n.value), n.x + 4 / s, n.y + fs * 2.15 + 3 / s);
+            ctx.fillText(this.fmt(n.value), n.x + 4 / s, n.y + fs + 3 / s + lines.length * lineH);
           }
         }
       }
