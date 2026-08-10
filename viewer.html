@@ -34,8 +34,8 @@ const entry = reg.datasets.find(d => d.id === id) || {};
 document.getElementById('dsid').textContent = id;
 document.title = `treemap://${id}`;
 const total = data.items.reduce((s, d) => s + d.value, 0);
-document.getElementById('dsmeta').textContent =
-  `${data.source} \u00b7 ${data.items.length} items \u00b7 ${fmtTotal(total)} ${data.unit}`;
+document.getElementById('dsmeta').innerHTML =
+  `${data.items.length} items \u00b7 ${fmtTotal(total)} ${data.unit} \u00b7 data: <a class="srclink" href="${data.source_url || '#'}" target="_blank" rel="noopener">${data.source}</a>`;
 
 function fmtTotal(v) {
   if (v >= 1e12) return (v / 1e12).toFixed(2) + 'T';

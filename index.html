@@ -12,7 +12,7 @@
   <span class="tag">every dataset, one zoomable canvas</span>
 </header>
 <div class="grid" id="grid"></div>
-<footer>data: World Bank, Our World in Data. add a dataset: drop a JSON matching SPEC.md into datasets/ and register it in index.json.</footer>
+<footer id="sources"><b>Data sources</b><div id="srclist"></div><div class="add">add a dataset: drop a JSON matching SPEC.md into datasets/ and register it in index.json.</div></footer>
 <script type="module">
 import { Treemap } from './treemap-engine.js';
 
@@ -24,13 +24,16 @@ for (const d of reg.datasets) {
   card.className = 'card';
   card.href = `viewer.html?d=${d.id}`;
   card.innerHTML = `<div class="thumb"><canvas></canvas></div>
-    <div class="info"><div class="t">${d.title}</div><div class="s">${d.unit} \u00b7 ${d.source}</div></div>`;
+    <div class="info"><div class="t">${d.title}</div><div class="s">${d.unit}</div><div class="src">${d.source}</div></div>`;
   grid.appendChild(card);
   const data = await fetch(`datasets/${d.id}.json`).then(r => r.json());
   const cv = card.querySelector('canvas');
   const tm = new Treemap(cv, data, { grouped: false });
   cv.style.pointerEvents = 'none';
 }
+document.getElementById('srclist').innerHTML = reg.datasets
+  .map(d => `<div class="srcrow">${d.title}: <a class="srclink" href="${d.source_url}" target="_blank" rel="noopener">${d.source}</a></div>`)
+  .join('');
 </script>
 </body>
 </html>

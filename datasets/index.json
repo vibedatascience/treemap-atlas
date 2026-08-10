@@ -4,55 +4,64 @@
    "id": "population",
    "title": "World population",
    "unit": "people",
-   "source": "World Bank 2024"
+   "source": "World Bank, World Development Indicators (SP.POP.TOTL), 2024",
+   "source_url": "https://data.worldbank.org/indicator/SP.POP.TOTL"
   },
   {
    "id": "cities",
    "title": "2,000 biggest cities",
    "unit": "people",
-   "source": "simplemaps"
+   "source": "simplemaps World Cities Database (free tier), metro population",
+   "source_url": "https://simplemaps.com/data/world-cities"
   },
   {
    "id": "house",
    "title": "US House seats",
    "unit": "seats",
-   "source": "119th Congress"
+   "source": "Wikipedia: List of current members of the U.S. House, retrieved Aug 10, 2026 (CC BY-SA)",
+   "source_url": "https://en.wikipedia.org/wiki/List_of_current_members_of_the_United_States_House_of_Representatives"
   },
   {
    "id": "gdp",
    "title": "GDP by country",
    "unit": "USD",
-   "source": "World Bank 2024"
+   "source": "World Bank, World Development Indicators (NY.GDP.MKTP.CD), 2024",
+   "source_url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD"
   },
   {
    "id": "exports",
    "title": "Exports",
    "unit": "USD",
-   "source": "World Bank 2024"
+   "source": "World Bank, World Development Indicators (NE.EXP.GNFS.CD), 2024",
+   "source_url": "https://data.worldbank.org/indicator/NE.EXP.GNFS.CD"
   },
   {
    "id": "military",
    "title": "Military spending",
    "unit": "USD",
-   "source": "World Bank 2024"
+   "source": "World Bank / SIPRI (MS.MIL.XPND.CD), 2024",
+   "source_url": "https://data.worldbank.org/indicator/MS.MIL.XPND.CD"
   },
   {
    "id": "co2",
    "title": "CO2 emissions",
    "unit": "Mt CO2",
-   "source": "World Bank 2023"
+   "source": "World Bank, World Development Indicators (EN.GHG.CO2.MT.CE.AR5), 2023",
+   "source_url": "https://data.worldbank.org/indicator/EN.GHG.CO2.MT.CE.AR5"
   },
   {
    "id": "energy",
    "title": "Energy consumption",
    "unit": "TWh",
-   "source": "OWID 2025"
+   "source": "Our World in Data, Energy Institute Statistical Review, 2025",
+   "source_url": "https://ourworldindata.org/grapher/primary-energy-cons"
   },
   {
    "id": "tourism",
    "title": "Tourist arrivals",
    "unit": "arrivals",
-   "source": "World Bank 2020"
+   "source": "World Bank / UNWTO (ST.INT.ARVL), 2020 (latest available)",
+   "source_url": "https://data.worldbank.org/indicator/ST.INT.ARVL"
   }
  ]
 }

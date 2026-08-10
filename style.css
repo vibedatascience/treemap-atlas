@@ -82,3 +82,10 @@ footer { padding: 16px 24px; font-size: 11px; color: var(--slate); border-top: 1
 #legend .lg { display: inline-flex; align-items: center; gap: 4px; }
 #legend .sw { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
 #tooltip .k { color: #94a3b8; display: inline-block; min-width: 52px; }
+
+.srclink { color: var(--navy); text-decoration: underline; text-underline-offset: 2px; }
+.srclink:hover { color: var(--red); }
+.card .src { font-size: 10px; color: var(--slate); margin-top: 4px; line-height: 1.4; }
+footer#sources { line-height: 1.9; }
+footer .srcrow { font-size: 11px; }
+footer .add { margin-top: 10px; color: #94a3b8; }
