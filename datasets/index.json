@@ -62,6 +62,27 @@
    "unit": "arrivals",
    "source": "World Bank / UNWTO (ST.INT.ARVL), 2020 (latest available)",
    "source_url": "https://data.worldbank.org/indicator/ST.INT.ARVL"
+  },
+  {
+   "id": "netflix",
+   "title": "Netflix hours viewed",
+   "unit": "hours",
+   "source": "Netflix Engagement Reports via TidyTuesday 2025-07-29",
+   "source_url": "https://github.com/rfordatascience/tidytuesday/tree/main/data/2025/2025-07-29"
+  },
+  {
+   "id": "himalaya",
+   "title": "Himalayan expeditions by peak",
+   "unit": "expeditions",
+   "source": "The Himalayan Database via TidyTuesday 2025-01-21",
+   "source_url": "https://github.com/rfordatascience/tidytuesday/tree/main/data/2025/2025-01-21"
+  },
+  {
+   "id": "measles",
+   "title": "Measles cases 2024",
+   "unit": "cases",
+   "source": "WHO provisional measles data via TidyTuesday 2025-06-24",
+   "source_url": "https://github.com/rfordatascience/tidytuesday/tree/main/data/2025/2025-06-24"
   }
  ]
 }
