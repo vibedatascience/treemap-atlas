@@ -143,6 +143,30 @@
    "source": "Wikipedia: List of best-selling video games",
    "source_url": "https://en.wikipedia.org/wiki/List_of_best-selling_video_games",
    "category": "culture"
+  },
+  {
+   "id": "refugees",
+   "title": "Refugees by origin",
+   "unit": "refugees",
+   "source": "UNHCR Refugee Data Finder API, 2024",
+   "source_url": "https://www.unhcr.org/refugee-statistics/",
+   "category": "people"
+  },
+  {
+   "id": "cereals",
+   "title": "Cereal production",
+   "unit": "tonnes",
+   "source": "FAOSTAT via Our World in Data",
+   "source_url": "https://ourworldindata.org/grapher/cereal-production",
+   "category": "planet"
+  },
+  {
+   "id": "oil",
+   "title": "Oil production",
+   "unit": "TWh",
+   "source": "Energy Institute Statistical Review via OWID",
+   "source_url": "https://ourworldindata.org/grapher/oil-production-by-country",
+   "category": "planet"
   }
  ]
 }
