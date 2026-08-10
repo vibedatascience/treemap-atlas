@@ -1,0 +1,79 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --red: #E60023;
+  --navy: #0a3069;
+  --ink: #0f172a;
+  --slate: #64748b;
+  --bg: #ffffff;
+  --line: #e2e8f0;
+}
+body {
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  background: var(--bg);
+  color: var(--ink);
+}
+a { color: inherit; text-decoration: none; }
+header.site {
+  padding: 20px 24px 12px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+header.site h1 { font-size: 17px; font-weight: 600; }
+header.site h1 .proto { color: var(--red); }
+header.site .tag { font-size: 12px; color: var(--slate); }
+.controls {
+  display: flex;
+  gap: 8px;
+  padding: 10px 24px;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--line);
+}
+.controls button {
+  font: inherit;
+  font-size: 12px;
+  padding: 5px 10px;
+  border: 1px solid var(--line);
+  background: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+  color: var(--ink);
+}
+.controls button.on { border-color: var(--red); color: var(--red); }
+.controls .meta { font-size: 12px; color: var(--slate); margin-left: auto; }
+#stage { position: relative; width: 100%; height: calc(100vh - 110px); }
+#stage canvas { display: block; cursor: grab; }
+#tooltip {
+  position: absolute;
+  pointer-events: none;
+  background: var(--ink);
+  color: #fff;
+  font-size: 12px;
+  padding: 6px 9px;
+  border-radius: 4px;
+  display: none;
+  white-space: nowrap;
+  z-index: 5;
+}
+#tooltip .v { color: #fca5a5; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  padding: 24px;
+}
+.card {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: border-color .15s;
+}
+.card:hover { border-color: var(--red); }
+.card canvas { display: block; width: 100%; height: 160px; }
+.card .info { padding: 10px 12px; }
+.card .info .t { font-size: 14px; font-weight: 600; }
+.card .info .s { font-size: 11px; color: var(--slate); margin-top: 3px; }
+footer { padding: 16px 24px; font-size: 11px; color: var(--slate); border-top: 1px solid var(--line); }

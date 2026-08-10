@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>treemap://atlas</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site">
+  <h1><a href="index.html"><span class="proto">treemap://</span><span id="dsid">...</span></a></h1>
+  <span class="tag" id="dsmeta"></span>
+</header>
+<div class="controls">
+  <button id="bFlat">flat colors</button>
+  <button id="bCat" class="on">color by category</button>
+  <button id="bGroup" class="on">group by category</button>
+  <button id="bReset">reset view</button>
+  <span class="meta" id="zoomlabel">zoom 1.0x</span>
+</div>
+<div id="stage">
+  <canvas id="cv"></canvas>
+  <div id="tooltip"></div>
+</div>
+<script type="module">
+import { Treemap } from './treemap-engine.js';
+
+const id = new URLSearchParams(location.search).get('d') || 'population';
+const [reg, data] = await Promise.all([
+  fetch('datasets/index.json').then(r => r.json()),
+  fetch(`datasets/${id}.json`).then(r => r.json())
+]);
+const entry = reg.datasets.find(d => d.id === id) || {};
+document.getElementById('dsid').textContent = id;
+document.title = `treemap://${id}`;
+const total = data.items.reduce((s, d) => s + d.value, 0);
+document.getElementById('dsmeta').textContent =
+  `${data.source} \u00b7 ${data.items.length} items \u00b7 ${fmtTotal(total)} ${data.unit}`;
+
+function fmtTotal(v) {
+  if (v >= 1e12) return (v / 1e12).toFixed(2) + 'T';
+  if (v >= 1e9) return (v / 1e9).toFixed(2) + 'B';
+  if (v >= 1e6) return (v / 1e6).toFixed(1) + 'M';
+  if (v >= 1e3) return (v / 1e3).toFixed(1) + 'K';
+  return v.toLocaleString();
+}
+
+const cv = document.getElementById('cv');
+const tm = new Treemap(cv, data);
+const tip = document.getElementById('tooltip');
+
+tm.onHover = (n, x, y) => {
+  if (!n) { tip.style.display = 'none'; return; }
+  const pct = (100 * n.value / total).toFixed(2);
+  tip.innerHTML = `${n.name}<br><span class="v">${fmtTotal(n.value)} ${data.unit} \u00b7 ${pct}%</span>`;
+  tip.style.display = 'block';
+  tip.style.left = Math.min(x + 14, cv.clientWidth - 180) + 'px';
+  tip.style.top = (y + 14) + 'px';
+};
+tm.onZoom = s => document.getElementById('zoomlabel').textContent = `zoom ${s.toFixed(1)}x`;
+
+const bFlat = document.getElementById('bFlat');
+const bCat = document.getElementById('bCat');
+bFlat.onclick = () => { tm.setColorMode('flat'); bFlat.classList.add('on'); bCat.classList.remove('on'); };
+bCat.onclick = () => { tm.setColorMode('category'); bCat.classList.add('on'); bFlat.classList.remove('on'); };
+const bGroup = document.getElementById('bGroup');
+bGroup.onclick = () => { const g = !bGroup.classList.contains('on'); bGroup.classList.toggle('on', g); tm.setGrouped(g); };
+document.getElementById('bReset').onclick = () => tm.reset();
+addEventListener('resize', () => tm.resize());
+</script>
+</body>
+</html>

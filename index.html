@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>treemap://atlas</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site">
+  <h1><span class="proto">treemap://</span>atlas</h1>
+  <span class="tag">every dataset, one zoomable canvas</span>
+</header>
+<div class="grid" id="grid"></div>
+<footer>data: World Bank, Our World in Data. add a dataset: drop a JSON matching SPEC.md into datasets/ and register it in index.json.</footer>
+<script type="module">
+import { Treemap } from './treemap-engine.js';
+
+const reg = await fetch('datasets/index.json').then(r => r.json());
+const grid = document.getElementById('grid');
+
+for (const d of reg.datasets) {
+  const card = document.createElement('a');
+  card.className = 'card';
+  card.href = `viewer.html?d=${d.id}`;
+  card.innerHTML = `<div class="thumb"><canvas></canvas></div>
+    <div class="info"><div class="t">${d.title}</div><div class="s">${d.unit} \u00b7 ${d.source}</div></div>`;
+  grid.appendChild(card);
+  const data = await fetch(`datasets/${d.id}.json`).then(r => r.json());
+  const cv = card.querySelector('canvas');
+  const tm = new Treemap(cv, data, { grouped: false });
+  cv.style.pointerEvents = 'none';
+}
+</script>
+</body>
+</html>

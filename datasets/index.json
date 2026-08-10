@@ -1,0 +1,28 @@
+{
+ "datasets": [
+  {
+   "id": "population",
+   "title": "World population",
+   "unit": "people",
+   "source": "World Bank 2024"
+  },
+  {
+   "id": "gdp",
+   "title": "GDP by country",
+   "unit": "USD",
+   "source": "World Bank 2024"
+  },
+  {
+   "id": "co2",
+   "title": "CO2 emissions",
+   "unit": "Mt CO2",
+   "source": "World Bank 2023"
+  },
+  {
+   "id": "energy",
+   "title": "Energy consumption",
+   "unit": "TWh",
+   "source": "OWID 2025"
+  }
+ ]
+}
