@@ -17,7 +17,8 @@ export class Treemap {
   buildTree() {
     const items = this.data.items.filter(d => d.value > 0);
     const cats = [...new Set(items.map(d => d.color_key || ''))].sort();
-    cats.forEach((c, i) => this.catColor.set(c, this.palette[i % this.palette.length]));
+    const custom = this.data.colors || {};
+    cats.forEach((c, i) => this.catColor.set(c, custom[c] || this.palette[i % this.palette.length]));
     if (this.grouped && items.some(d => d.parent)) {
       const groups = new Map();
       for (const it of items) {
@@ -125,14 +126,24 @@ export class Treemap {
         ctx.fillRect(n.x, n.y, n.w, n.h);
       }
       const pw = n.w * s, ph = n.h * s;
-      if (pw > 44 && ph > 26) {
-        ctx.fillStyle = '#ffffff';
-        const fs = Math.min(12 / s, n.h * 0.3, n.w / (n.name.length * 0.62));
+      if (pw > 34 && ph > 22) {
+        let fs = Math.min(13, Math.max(9, Math.sqrt(pw * ph) / 7)) / s;
         ctx.font = `${fs}px ui-monospace, monospace`;
-        ctx.fillText(n.name, n.x + 3 / s, n.y + fs + 2 / s, n.w - 6 / s);
-        if (ph > 42) {
-          ctx.font = `${fs * 0.85}px ui-monospace, monospace`;
-          ctx.fillText(this.fmt(n.value), n.x + 3 / s, n.y + fs * 2.1 + 2 / s, n.w - 6 / s);
+        let tw = ctx.measureText(n.name).width;
+        const maxW = n.w - 8 / s;
+        if (tw > maxW) {
+          fs = Math.max(8 / s, fs * maxW / tw);
+          ctx.font = `${fs}px ui-monospace, monospace`;
+          tw = ctx.measureText(n.name).width;
+        }
+        const fits = tw <= maxW && fs * s >= 8 && n.h > fs * 1.6;
+        if (fits) {
+          ctx.fillStyle = '#ffffff';
+          ctx.fillText(n.name, n.x + 4 / s, n.y + fs + 3 / s);
+          if (n.h > fs * 3 && ph > 40) {
+            ctx.font = `${fs * 0.82}px ui-monospace, monospace`;
+            ctx.fillText(this.fmt(n.value), n.x + 4 / s, n.y + fs * 2.15 + 3 / s);
+          }
         }
       }
     }
@@ -217,7 +228,31 @@ export class Treemap {
 
   setColorMode(m) { this.colorMode = m; this.draw(); }
 
-  setGrouped(g) { this.grouped = g; this.buildTree(); this.layout(); this.reset(); }
+  setGrouped(g) {
+    const prev = new Map(this.leaves.map(n => [n, { x: n.x, y: n.y, w: n.w, h: n.h }]));
+    this.grouped = g;
+    this.buildTree();
+    this.layout();
+    const targets = new Map(this.leaves.map(n => [n, { x: n.x, y: n.y, w: n.w, h: n.h }]));
+    this.tx = 0; this.ty = 0; this.scale = 1;
+    const t0 = performance.now();
+    const step = t => {
+      const p = Math.min(1, (t - t0) / 700);
+      const e = p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
+      for (const n of this.leaves) {
+        const a = prev.get(n), b = targets.get(n);
+        if (a && b) {
+          n.x = a.x + (b.x - a.x) * e; n.y = a.y + (b.y - a.y) * e;
+          n.w = a.w + (b.w - a.w) * e; n.h = a.h + (b.h - a.h) * e;
+        }
+      }
+      this.draw();
+      if (p < 1) requestAnimationFrame(step);
+      else { for (const n of this.leaves) { const b = targets.get(n); if (b) Object.assign(n, b); } this.draw(); }
+    };
+    requestAnimationFrame(step);
+    this.onZoom && this.onZoom(1);
+  }
 
   resize() {
     const r = this.canvas.parentElement.getBoundingClientRect();
