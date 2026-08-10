@@ -11,6 +11,7 @@
   <h1><span class="proto">treemap://</span>atlas</h1>
   <span class="tag">every dataset, one zoomable canvas</span>
 </header>
+<div class="chips" id="chips"></div>
 <div class="grid" id="grid"></div>
 <footer id="sources"><b>Data sources</b><div id="srclist"></div><div class="add">add a dataset: drop a JSON matching SPEC.md into datasets/ and register it in index.json.</div></footer>
 <script type="module">
@@ -19,12 +20,32 @@ import { Treemap } from './treemap-engine.js';
 const reg = await fetch('datasets/index.json').then(r => r.json());
 const grid = document.getElementById('grid');
 
+const cats = ['all', ...new Set(reg.datasets.map(d => d.category))];
+const counts = {};
+for (const d of reg.datasets) counts[d.category] = (counts[d.category] || 0) + 1;
+const chips = document.getElementById('chips');
+let active = 'all';
+for (const c of cats) {
+  const b = document.createElement('button');
+  b.className = 'chip' + (c === 'all' ? ' on' : '');
+  b.textContent = c === 'all' ? `all ${reg.datasets.length}` : `${c} ${counts[c]}`;
+  b.onclick = () => {
+    active = c;
+    document.querySelectorAll('.chip').forEach(x => x.classList.remove('on'));
+    b.classList.add('on');
+    document.querySelectorAll('.card').forEach(el =>
+      el.style.display = (c === 'all' || el.dataset.cat === c) ? '' : 'none');
+  };
+  chips.appendChild(b);
+}
+
 for (const d of reg.datasets) {
   const card = document.createElement('a');
   card.className = 'card';
+  card.dataset.cat = d.category;
   card.href = `viewer.html?d=${d.id}`;
   card.innerHTML = `<div class="thumb"><canvas></canvas></div>
-    <div class="info"><div class="t">${d.title}</div><div class="s">${d.unit}</div><div class="src">${d.source}</div></div>`;
+    <div class="info"><div class="t">${d.title}</div><div class="s">${d.unit} \u00b7 <span class="cat">${d.category}</span></div><div class="src">${d.source}</div></div>`;
   grid.appendChild(card);
   const data = await fetch(`datasets/${d.id}.json`).then(r => r.json());
   const cv = card.querySelector('canvas');
