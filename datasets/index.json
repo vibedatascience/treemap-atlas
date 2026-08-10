@@ -33,14 +33,6 @@
    "category": "economy"
   },
   {
-   "id": "exports",
-   "title": "Exports",
-   "unit": "USD",
-   "source": "World Bank, World Development Indicators (NE.EXP.GNFS.CD), 2024",
-   "source_url": "https://data.worldbank.org/indicator/NE.EXP.GNFS.CD",
-   "category": "economy"
-  },
-  {
    "id": "military",
    "title": "Military spending",
    "unit": "USD",
@@ -63,14 +55,6 @@
    "source": "Our World in Data, Energy Institute Statistical Review, 2025",
    "source_url": "https://ourworldindata.org/grapher/primary-energy-cons",
    "category": "planet"
-  },
-  {
-   "id": "tourism",
-   "title": "Tourist arrivals",
-   "unit": "arrivals",
-   "source": "World Bank / UNWTO (ST.INT.ARVL), 2020 (latest available)",
-   "source_url": "https://data.worldbank.org/indicator/ST.INT.ARVL",
-   "category": "culture"
   },
   {
    "id": "netflix",
@@ -102,14 +86,6 @@
    "unit": "goals",
    "source": "Wikipedia goalscorer data (FIFA player statistics), Aug 2026",
    "source_url": "https://en.wikipedia.org/wiki/2026_FIFA_World_Cup",
-   "category": "sport"
-  },
-  {
-   "id": "epl",
-   "title": "Premier League 2025-26 goals",
-   "unit": "goals",
-   "source": "Wikipedia: 2025-26 Premier League season",
-   "source_url": "https://en.wikipedia.org/wiki/2025%E2%80%9326_Premier_League",
    "category": "sport"
   }
  ]
