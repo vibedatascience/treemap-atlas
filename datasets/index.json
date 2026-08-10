@@ -79,6 +79,46 @@
    "source": "WHO provisional measles data via TidyTuesday 2025-06-24",
    "source_url": "https://github.com/rfordatascience/tidytuesday/tree/main/data/2025/2025-06-24",
    "category": "health"
+  },
+  {
+   "id": "budget",
+   "title": "US federal budget FY2025",
+   "unit": "USD",
+   "source": "USAspending.gov toptier agency budget authority, FY2025",
+   "source_url": "https://www.usaspending.gov/agency",
+   "category": "economy"
+  },
+  {
+   "id": "wikipedia",
+   "title": "Wikipedia top articles, July 2026",
+   "unit": "pageviews",
+   "source": "Wikimedia Pageviews API, English Wikipedia, July 2026",
+   "source_url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/top/en.wikipedia/all-access/2026/07/all-days",
+   "category": "culture"
+  },
+  {
+   "id": "solar",
+   "title": "Solar system by mass",
+   "unit": "x10^21 kg",
+   "source": "NASA planetary fact sheets / IAU",
+   "source_url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/",
+   "category": "science"
+  },
+  {
+   "id": "boxoffice",
+   "title": "Highest-grossing films",
+   "unit": "USD",
+   "source": "Box Office Mojo via Wikipedia: List of highest-grossing films",
+   "source_url": "https://en.wikipedia.org/wiki/List_of_highest-grossing_films",
+   "category": "culture"
+  },
+  {
+   "id": "languages",
+   "title": "Languages by native speakers",
+   "unit": "speakers",
+   "source": "Ethnologue 2025 via Wikipedia",
+   "source_url": "https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers",
+   "category": "people"
   }
  ]
 }
