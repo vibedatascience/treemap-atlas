@@ -94,3 +94,12 @@ footer .add { margin-top: 10px; color: #94a3b8; }
 .chip { font: inherit; font-size: 12px; padding: 5px 11px; border: 1px solid var(--line); background: #fff; cursor: pointer; border-radius: 999px; color: var(--slate); }
 .chip.on { border-color: var(--red); color: var(--red); }
 .card .cat { color: var(--red); }
+
+#tablewrap { height: 100%; overflow: auto; padding: 0 24px 24px; }
+table.dt { border-collapse: collapse; width: 100%; font-size: 12px; margin-top: 12px; }
+table.dt th { text-align: left; padding: 7px 12px; border-bottom: 2px solid var(--ink); cursor: pointer; user-select: none; position: sticky; top: 0; background: #fff; }
+table.dt th:hover { color: var(--red); }
+table.dt td { padding: 5px 12px; border-bottom: 1px solid var(--line); }
+table.dt td:nth-child(1) { color: var(--slate); width: 40px; }
+table.dt td:nth-child(3), table.dt td:nth-child(4) { font-variant-numeric: tabular-nums; }
+table.dt tr:hover td { background: #fef2f2; }

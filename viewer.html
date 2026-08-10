@@ -16,11 +16,13 @@
   <button id="bCat" class="on">color by category</button>
   <button id="bGroup" class="on">group by category</button>
   <button id="bReset">reset view</button>
+  <button id="bTable">table view</button>
   <span id="legend"></span><span class="meta" id="zoomlabel">zoom 1.0x</span>
 </div>
 <div id="stage">
   <canvas id="cv"></canvas>
   <div id="tooltip"></div>
+  <div id="tablewrap" style="display:none"></div>
 </div>
 <script type="module">
 import { Treemap } from './treemap-engine.js';
@@ -74,6 +76,44 @@ bCat.onclick = () => { tm.setColorMode('category'); bCat.classList.add('on'); bF
 const bGroup = document.getElementById('bGroup');
 bGroup.onclick = () => { const g = !bGroup.classList.contains('on'); bGroup.classList.toggle('on', g); tm.setGrouped(g); };
 document.getElementById('bReset').onclick = () => tm.reset();
+
+const tw = document.getElementById('tablewrap');
+const bTable = document.getElementById('bTable');
+let tableOn = false, sortKey = 'value', sortDir = -1;
+function renderTable() {
+  const rows = [...data.items].map(d => ({
+    name: d.name, value: d.value, share: 100 * d.value / total,
+    group: d.parent || '', rank: tm.rank.get(d) || 0
+  }));
+  rows.sort((a, b) => {
+    const x = a[sortKey], y = b[sortKey];
+    return (typeof x === 'string' ? x.localeCompare(y) : x - y) * sortDir;
+  });
+  const hasGroup = rows.some(r => r.group);
+  const cols = [['rank', '#'], ['name', 'name'], ['value', `value (${data.unit})`], ['share', 'share']];
+  if (hasGroup) cols.push(['group', 'group']);
+  const arrow = k => sortKey === k ? (sortDir < 0 ? ' \u2193' : ' \u2191') : '';
+  tw.innerHTML = `<table class="dt"><thead><tr>` +
+    cols.map(([k, l]) => `<th data-k="${k}">${l}${arrow(k)}</th>`).join('') +
+    `</tr></thead><tbody>` +
+    rows.map(r => `<tr><td>${r.rank}</td><td>${r.name}</td><td>${fmtTotal(r.value)}</td><td>${r.share.toFixed(2)}%</td>` +
+      (hasGroup ? `<td>${r.group}</td>` : '') + `</tr>`).join('') +
+    `</tbody></table>`;
+  tw.querySelectorAll('th').forEach(th => th.onclick = () => {
+    const k = th.dataset.k;
+    if (sortKey === k) sortDir = -sortDir; else { sortKey = k; sortDir = k === 'name' || k === 'group' ? 1 : -1; }
+    renderTable();
+  });
+}
+bTable.onclick = () => {
+  tableOn = !tableOn;
+  bTable.classList.toggle('on', tableOn);
+  bTable.textContent = tableOn ? 'map view' : 'table view';
+  cv.style.display = tableOn ? 'none' : 'block';
+  tw.style.display = tableOn ? 'block' : 'none';
+  tip.style.display = 'none';
+  if (tableOn) renderTable();
+};
 const lg = document.getElementById('legend');
 function buildLegend() {
   lg.innerHTML = '';
