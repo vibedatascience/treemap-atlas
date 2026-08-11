@@ -9,7 +9,7 @@
 <body>
 <header class="site">
   <div class="row1"><h1><a href="index.html"><span class="proto">treemap://</span><span id="dsid">...</span></a></h1></div>
-  <div class="row2"><h2 id="dstitle"></h2><span class="tag" id="dsmeta"></span></div>
+  <div class="row2"><span class="tag" id="dsmeta"></span></div>
 </header>
 <div class="controls">
   <span class="cgroup"><span class="clabel">view</span><span class="seg"><button id="bMap" class="on">map</button><button id="bTable">table</button></span></span>
@@ -40,7 +40,7 @@ const [reg, data] = await Promise.all([
 ]);
 const entry = reg.datasets.find(d => d.id === id) || {};
 document.getElementById('dsid').textContent = id;
-document.getElementById('dstitle').textContent = data.title;
+
 document.title = `treemap://${id}`;
 const total = data.items.reduce((s, d) => s + d.value, 0);
 const cap = document.getElementById('caption');
@@ -51,7 +51,7 @@ function setCaption(y) {
 }
 setCaption(data.years ? data.years[data.years.length - 1] : data.date);
 document.getElementById('dsmeta').innerHTML =
-  `${data.items.length} items \u00b7 ${fmtTotal(total)} ${data.unit} \u00b7 <a class="srclink" href="${data.source_url || '#'}" target="_blank" rel="noopener">source</a>`;
+  `${data.items.length} items \u00b7 ${fmtTotal(total)} ${data.unit} \u00b7 data: <a class="srclink" href="${data.source_url || '#'}" target="_blank" rel="noopener">${data.source}</a>`;
 
 function fmtTotal(v) {
   if (v >= 1e12) return (v / 1e12).toFixed(2) + 'T';
