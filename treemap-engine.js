@@ -116,6 +116,52 @@ export class Treemap {
     return String(v);
   }
 
+  balancedWrap(words, k, measure) {
+    if (k === 1) return { lines: [words.join(' ')], width: measure(words.join(' ')) };
+    const n = words.length;
+    if (k > n) return null;
+    const cost = (i, j) => measure(words.slice(i, j).join(' '));
+    const dp = Array.from({ length: k + 1 }, () => new Array(n + 1).fill(Infinity));
+    const cut = Array.from({ length: k + 1 }, () => new Array(n + 1).fill(0));
+    dp[0][0] = 0;
+    for (let li = 1; li <= k; li++) {
+      for (let j = li; j <= n; j++) {
+        for (let i = li - 1; i < j; i++) {
+          const w = Math.max(dp[li - 1][i], cost(i, j));
+          if (w < dp[li][j]) { dp[li][j] = w; cut[li][j] = i; }
+        }
+      }
+    }
+    const lines = [];
+    let j = n;
+    for (let li = k; li >= 1; li--) { const i = cut[li][j]; lines.unshift(words.slice(i, j).join(' ')); j = i; }
+    return { lines, width: dp[k][n] };
+  }
+
+  fitLabel(n, s) {
+    const key = `${n.name}|${Math.round(n.w * s)}x${Math.round(n.h * s)}`;
+    if (!this._labelCache) this._labelCache = new Map();
+    if (this._labelCache.has(key)) return this._labelCache.get(key);
+    if (this._labelCache.size > 4000) this._labelCache.clear();
+    const ctx = this.ctx;
+    const maxW = n.w - 8 / s;
+    const words = n.name.split(' ');
+    const base = 12;
+    ctx.font = `${base}px ui-monospace, monospace`;
+    const measure = t => ctx.measureText(t).width / base;
+    let best = null;
+    const maxLines = Math.min(3, words.length);
+    for (let k = 1; k <= maxLines; k++) {
+      const wrap = this.balancedWrap(words, k, measure);
+      if (!wrap) continue;
+      let fs = Math.min(13 / s, maxW / wrap.width, (n.h - 3 / s) / (k * 1.15 + 0.4));
+      if (fs * s < 6.5) continue;
+      if (!best || fs > best.fs * 1.06) best = { fs, lines: wrap.lines, needH: fs * 1.15 * k + fs * 0.4 };
+    }
+    this._labelCache.set(key, best);
+    return best;
+  }
+
   draw() {
     const ctx = this.ctx, dpr = devicePixelRatio;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -135,34 +181,14 @@ export class Treemap {
       }
       const pw = n.w * s, ph = n.h * s;
       if (pw > 26 && ph > 14) {
-        const maxW = n.w - 8 / s;
-        let fs = Math.min(13, Math.max(7, Math.sqrt(pw * ph) / 6.5)) / s;
-        ctx.font = `${fs}px ui-monospace, monospace`;
-        let tw = ctx.measureText(n.name).width;
-        let lines = [n.name];
-        if (tw > maxW && n.name.includes(' ') && n.h > fs * 3) {
-          const words = n.name.split(' ');
-          let best = null;
-          for (let k = 1; k < words.length; k++) {
-            const a = words.slice(0, k).join(' '), b = words.slice(k).join(' ');
-            const w2 = Math.max(ctx.measureText(a).width, ctx.measureText(b).width);
-            if (!best || w2 < best.w) best = { w: w2, lines: [a, b] };
-          }
-          if (best && best.w <= maxW) { lines = best.lines; tw = best.w; }
-        }
-        if (tw > maxW) {
-          fs = Math.max(7 / s, fs * maxW / tw);
-          ctx.font = `${fs}px ui-monospace, monospace`;
-          tw = Math.max(...lines.map(l => ctx.measureText(l).width));
-        }
-        const lineH = fs * 1.15;
-        const needH = lineH * lines.length + fs * 0.4;
-        if (tw <= maxW && fs * s >= 6.5 && n.h > needH) {
+        const fit = this.fitLabel(n, s);
+        if (fit) {
+          ctx.font = `${fit.fs}px ui-monospace, monospace`;
           ctx.fillStyle = '#ffffff';
-          lines.forEach((l, li) => ctx.fillText(l, n.x + 4 / s, n.y + fs + 3 / s + li * lineH));
-          if (n.h > needH + fs * 1.3 && ph > 30) {
-            ctx.font = `${fs * 0.82}px ui-monospace, monospace`;
-            ctx.fillText(this.fmt(n.value), n.x + 4 / s, n.y + fs + 3 / s + lines.length * lineH);
+          fit.lines.forEach((l, li) => ctx.fillText(l, n.x + 4 / s, n.y + fit.fs + 3 / s + li * fit.fs * 1.15));
+          if (n.h > fit.needH + fit.fs * 1.3 && ph > 30) {
+            ctx.font = `${fit.fs * 0.82}px ui-monospace, monospace`;
+            ctx.fillText(this.fmt(n.value), n.x + 4 / s, n.y + fit.fs + 3 / s + fit.lines.length * fit.fs * 1.15);
           }
         }
       }
@@ -288,6 +314,7 @@ export class Treemap {
   }
 
   setYear(idx) {
+    this._labelCache = null;
     if (!this.data.years) return;
     this.animateLayout(() => {
       for (const it of this.data.items) {
