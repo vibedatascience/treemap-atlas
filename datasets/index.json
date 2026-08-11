@@ -98,7 +98,7 @@
   },
   {
    "id": "solar",
-   "title": "Solar system by mass",
+   "title": "Solar system by mass (excl. Sun)",
    "unit": "x10^21 kg",
    "source": "NASA planetary fact sheets / IAU",
    "source_url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/",
@@ -174,7 +174,7 @@
    "unit": "warheads",
    "source": "Federation of American Scientists via OWID ETL",
    "source_url": "https://ourworldindata.org/grapher/nuclear-warhead-inventories",
-   "category": "owid"
+   "category": "politics"
   },
   {
    "id": "space",
@@ -182,7 +182,7 @@
    "unit": "objects",
    "source": "UNOOSA via OWID ETL",
    "source_url": "https://ourworldindata.org/grapher/cumulative-number-of-objects-launched-into-outer-space",
-   "category": "owid"
+   "category": "science"
   },
   {
    "id": "meat",
@@ -190,7 +190,7 @@
    "unit": "tonnes",
    "source": "FAOSTAT via OWID ETL",
    "source_url": "https://ourworldindata.org/grapher/meat-production-tonnes",
-   "category": "owid"
+   "category": "planet"
   },
   {
    "id": "cumco2",
@@ -198,7 +198,7 @@
    "unit": "t CO2",
    "source": "Global Carbon Budget via OWID ETL",
    "source_url": "https://ourworldindata.org/grapher/cumulative-co-emissions",
-   "category": "owid"
+   "category": "planet"
   },
   {
    "id": "solarcap",
@@ -206,15 +206,7 @@
    "unit": "GW",
    "source": "IRENA via OWID ETL",
    "source_url": "https://ourworldindata.org/grapher/installed-solar-pv-capacity",
-   "category": "owid"
-  },
-  {
-   "id": "plastic",
-   "title": "Ocean plastic emissions",
-   "unit": "% of global",
-   "source": "Meijer et al. via OWID ETL",
-   "source_url": "https://ourworldindata.org/grapher/share-of-global-plastic-waste-emitted-to-the-ocean",
-   "category": "owid"
+   "category": "planet"
   },
   {
    "id": "ai",
@@ -222,7 +214,7 @@
    "unit": "systems",
    "source": "Epoch AI via OWID ETL",
    "source_url": "https://ourworldindata.org/grapher/cumulative-number-of-large-scale-ai-systems-by-country",
-   "category": "owid"
+   "category": "science"
   }
  ]
 }

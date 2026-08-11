@@ -1,1 +1,159 @@
-{"title": "Solar system by mass", "unit": "x10\u00b2\u00b9 kg", "source": "NASA planetary fact sheets / IAU", "source_url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/", "date": "2026", "items": [{"name": "Sun", "value": 1989000000, "parent": "Star", "color_key": "Star"}, {"name": "Jupiter", "value": 1898130, "parent": "Planet", "color_key": "Planet"}, {"name": "Saturn", "value": 568320, "parent": "Planet", "color_key": "Planet"}, {"name": "Neptune", "value": 102410, "parent": "Planet", "color_key": "Planet"}, {"name": "Uranus", "value": 86810, "parent": "Planet", "color_key": "Planet"}, {"name": "Earth", "value": 5972, "parent": "Planet", "color_key": "Planet"}, {"name": "Venus", "value": 4867, "parent": "Planet", "color_key": "Planet"}, {"name": "Mars", "value": 642, "parent": "Planet", "color_key": "Planet"}, {"name": "Mercury", "value": 330, "parent": "Planet", "color_key": "Planet"}, {"name": "Ganymede", "value": 148.2, "parent": "Moon", "color_key": "Moon"}, {"name": "Titan", "value": 134.5, "parent": "Moon", "color_key": "Moon"}, {"name": "Callisto", "value": 107.6, "parent": "Moon", "color_key": "Moon"}, {"name": "Io", "value": 89.3, "parent": "Moon", "color_key": "Moon"}, {"name": "Moon", "value": 73.4, "parent": "Moon", "color_key": "Moon"}, {"name": "Europa", "value": 48.0, "parent": "Moon", "color_key": "Moon"}, {"name": "Triton", "value": 21.4, "parent": "Moon", "color_key": "Moon"}, {"name": "Titania", "value": 3.4, "parent": "Moon", "color_key": "Moon"}, {"name": "Oberon", "value": 3.1, "parent": "Moon", "color_key": "Moon"}, {"name": "Rhea", "value": 2.3, "parent": "Moon", "color_key": "Moon"}, {"name": "Iapetus", "value": 1.8, "parent": "Moon", "color_key": "Moon"}, {"name": "Pluto", "value": 13.0, "parent": "Dwarf planet", "color_key": "Dwarf planet"}, {"name": "Eris", "value": 16.6, "parent": "Dwarf planet", "color_key": "Dwarf planet"}, {"name": "Haumea", "value": 4.0, "parent": "Dwarf planet", "color_key": "Dwarf planet"}, {"name": "Makemake", "value": 3.1, "parent": "Dwarf planet", "color_key": "Dwarf planet"}, {"name": "Ceres", "value": 0.94, "parent": "Dwarf planet", "color_key": "Dwarf planet"}], "colors": {"Star": "#E60023", "Planet": "#0a3069", "Moon": "#0d9488", "Dwarf planet": "#64748b"}}
+{
+ "title": "Solar system by mass (excl. Sun)",
+ "unit": "x10\u00b2\u00b9 kg",
+ "source": "NASA planetary fact sheets / IAU",
+ "source_url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/",
+ "date": "2026",
+ "items": [
+  {
+   "name": "Jupiter",
+   "value": 1898130,
+   "parent": "Planet",
+   "color_key": "Planet"
+  },
+  {
+   "name": "Saturn",
+   "value": 568320,
+   "parent": "Planet",
+   "color_key": "Planet"
+  },
+  {
+   "name": "Neptune",
+   "value": 102410,
+   "parent": "Planet",
+   "color_key": "Planet"
+  },
+  {
+   "name": "Uranus",
+   "value": 86810,
+   "parent": "Planet",
+   "color_key": "Planet"
+  },
+  {
+   "name": "Earth",
+   "value": 5972,
+   "parent": "Planet",
+   "color_key": "Planet"
+  },
+  {
+   "name": "Venus",
+   "value": 4867,
+   "parent": "Planet",
+   "color_key": "Planet"
+  },
+  {
+   "name": "Mars",
+   "value": 642,
+   "parent": "Planet",
+   "color_key": "Planet"
+  },
+  {
+   "name": "Mercury",
+   "value": 330,
+   "parent": "Planet",
+   "color_key": "Planet"
+  },
+  {
+   "name": "Ganymede",
+   "value": 148.2,
+   "parent": "Moon",
+   "color_key": "Moon"
+  },
+  {
+   "name": "Titan",
+   "value": 134.5,
+   "parent": "Moon",
+   "color_key": "Moon"
+  },
+  {
+   "name": "Callisto",
+   "value": 107.6,
+   "parent": "Moon",
+   "color_key": "Moon"
+  },
+  {
+   "name": "Io",
+   "value": 89.3,
+   "parent": "Moon",
+   "color_key": "Moon"
+  },
+  {
+   "name": "Moon",
+   "value": 73.4,
+   "parent": "Moon",
+   "color_key": "Moon"
+  },
+  {
+   "name": "Europa",
+   "value": 48.0,
+   "parent": "Moon",
+   "color_key": "Moon"
+  },
+  {
+   "name": "Triton",
+   "value": 21.4,
+   "parent": "Moon",
+   "color_key": "Moon"
+  },
+  {
+   "name": "Titania",
+   "value": 3.4,
+   "parent": "Moon",
+   "color_key": "Moon"
+  },
+  {
+   "name": "Oberon",
+   "value": 3.1,
+   "parent": "Moon",
+   "color_key": "Moon"
+  },
+  {
+   "name": "Rhea",
+   "value": 2.3,
+   "parent": "Moon",
+   "color_key": "Moon"
+  },
+  {
+   "name": "Iapetus",
+   "value": 1.8,
+   "parent": "Moon",
+   "color_key": "Moon"
+  },
+  {
+   "name": "Pluto",
+   "value": 13.0,
+   "parent": "Dwarf planet",
+   "color_key": "Dwarf planet"
+  },
+  {
+   "name": "Eris",
+   "value": 16.6,
+   "parent": "Dwarf planet",
+   "color_key": "Dwarf planet"
+  },
+  {
+   "name": "Haumea",
+   "value": 4.0,
+   "parent": "Dwarf planet",
+   "color_key": "Dwarf planet"
+  },
+  {
+   "name": "Makemake",
+   "value": 3.1,
+   "parent": "Dwarf planet",
+   "color_key": "Dwarf planet"
+  },
+  {
+   "name": "Ceres",
+   "value": 0.94,
+   "parent": "Dwarf planet",
+   "color_key": "Dwarf planet"
+  }
+ ],
+ "colors": {
+  "Star": "#E60023",
+  "Planet": "#0a3069",
+  "Moon": "#0d9488",
+  "Dwarf planet": "#64748b"
+ }
+}
