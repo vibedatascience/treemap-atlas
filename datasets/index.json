@@ -223,14 +223,6 @@
    "source": "US Census Bureau intercensal estimates via JoshData/historical-state-population-csv, 1900-2025",
    "source_url": "https://github.com/JoshData/historical-state-population-csv",
    "category": "people"
-  },
-  {
-   "id": "electoral",
-   "title": "Electoral College 2024",
-   "unit": "electoral votes",
-   "source": "National Archives, 2024 presidential election results",
-   "source_url": "https://www.archives.gov/electoral-college/2024",
-   "category": "politics"
   }
  ]
 }
