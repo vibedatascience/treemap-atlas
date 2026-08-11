@@ -113,3 +113,13 @@ table.dt tr:hover td { background: #fef2f2; }
 #caption { padding: 12px 24px 20px; font-size: 13px; color: var(--ink); border-top: 1px solid var(--line); line-height: 1.6; }
 #caption b { font-weight: 600; }
 #stage { height: calc(100vh - 160px); }
+
+.cgroup { display: inline-flex; align-items: center; gap: 7px; margin-right: 14px; }
+.clabel { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 5px; overflow: hidden; }
+.seg button { border: none; border-radius: 0; padding: 5px 10px; }
+.seg button + button { border-left: 1px solid var(--line); }
+.seg button.on { background: var(--red); color: #fff; border-color: var(--red); }
+.seg button:disabled { opacity: 0.4; cursor: default; }
+.cgroup.nav { margin-left: auto; margin-right: 0; }
+.cgroup.nav .meta { margin-left: 0; }

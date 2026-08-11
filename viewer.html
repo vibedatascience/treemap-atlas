@@ -12,12 +12,10 @@
   <span class="tag" id="dsmeta"></span>
 </header>
 <div class="controls">
-  <button id="bFlat">flat colors</button>
-  <button id="bCat" class="on">color by category</button>
-  <button id="bGroup" class="on">group by category</button>
-  <button id="bReset">reset view</button>
-  <button id="bTable">table view</button>
-  <span id="legend"></span><span class="meta" id="zoomlabel">zoom 1.0x</span>
+  <span class="cgroup"><span class="clabel">view</span><span class="seg"><button id="bMap" class="on">map</button><button id="bTable">table</button></span></span>
+  <span class="cgroup"><span class="clabel">color</span><span class="seg"><button id="bFlat">flat</button><button id="bCat" class="on">category</button></span><span id="legend"></span></span>
+  <span class="cgroup"><span class="clabel">layout</span><span class="seg"><button id="bGroup" class="on">grouped</button><button id="bUngroup">flat</button></span></span>
+  <span class="cgroup nav"><span class="meta" id="zoomlabel">zoom 1.0x</span><button id="bReset">reset</button></span>
 </div>
 <div class="controls" id="timebar" style="display:none">
   <button id="bPlay">play</button>
@@ -89,7 +87,16 @@ const bCat = document.getElementById('bCat');
 bFlat.onclick = () => { tm.setColorMode('flat'); bFlat.classList.add('on'); bCat.classList.remove('on'); };
 bCat.onclick = () => { tm.setColorMode('category'); bCat.classList.add('on'); bFlat.classList.remove('on'); };
 const bGroup = document.getElementById('bGroup');
-bGroup.onclick = () => { const g = !bGroup.classList.contains('on'); bGroup.classList.toggle('on', g); tm.setGrouped(g); };
+const bUngroup = document.getElementById('bUngroup');
+function setGroupUI(g) {
+  bGroup.classList.toggle('on', g);
+  bUngroup.classList.toggle('on', !g);
+  tm.setGrouped(g);
+}
+bGroup.onclick = () => setGroupUI(true);
+bUngroup.onclick = () => setGroupUI(false);
+const hasGroups = data.items.some(d => d.parent);
+if (!hasGroups) { bGroup.disabled = true; bUngroup.classList.add('on'); bGroup.classList.remove('on'); }
 document.getElementById('bReset').onclick = () => tm.reset();
 
 const tw = document.getElementById('tablewrap');
@@ -159,10 +166,12 @@ if (data.years && data.years.length > 1) {
   };
 }
 
+const bMap = document.getElementById('bMap');
+bMap.onclick = () => { if (tableOn) bTable.onclick(); };
 bTable.onclick = () => {
   tableOn = !tableOn;
   bTable.classList.toggle('on', tableOn);
-  bTable.textContent = tableOn ? 'map view' : 'table view';
+  bMap.classList.toggle('on', !tableOn);
   cv.style.display = tableOn ? 'none' : 'block';
   tw.style.display = tableOn ? 'block' : 'none';
   tip.style.display = 'none';
