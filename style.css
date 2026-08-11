@@ -130,3 +130,10 @@ header.site { display: block; }
 header.site .row1 { margin-bottom: 4px; }
 header.site .row2 { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
 header.site h2#dstitle { font-size: 21px; font-weight: 700; margin: 0; letter-spacing: -0.2px; flex-basis: auto; }
+
+#barswrap { height: 100%; overflow: auto; padding: 12px 24px 24px; }
+.barrow { display: flex; align-items: center; gap: 10px; padding: 3px 0; font-size: 12px; }
+.bname { width: 230px; min-width: 230px; text-align: right; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.btrack { flex: 1; background: #f1f5f9; border-radius: 3px; height: 15px; overflow: hidden; }
+.bfill { display: block; height: 100%; width: 0; transition: width 0.5s cubic-bezier(0.65,0,0.35,1); }
+.bval { width: 130px; min-width: 130px; color: var(--slate); font-variant-numeric: tabular-nums; }

@@ -12,7 +12,7 @@
   <div class="row2"><span class="tag" id="dsmeta"></span></div>
 </header>
 <div class="controls">
-  <span class="cgroup"><span class="clabel">view</span><span class="seg"><button id="bMap" class="on">map</button><button id="bTable">table</button></span></span>
+  <span class="cgroup"><span class="clabel">view</span><span class="seg"><button id="bMap" class="on">map</button><button id="bBars">bars</button><button id="bTable">table</button></span></span>
   <span class="cgroup"><span class="clabel">color</span><span class="seg"><button id="bFlat">flat</button><button id="bCat" class="on">category</button></span><span id="legend"></span></span>
   <span class="cgroup"><span class="clabel">layout</span><span class="seg"><button id="bGroup" class="on">grouped</button><button id="bUngroup">flat</button></span></span>
   <span class="cgroup nav"><span class="meta" id="zoomlabel">zoom 1.0x</span><button id="bReset">reset</button></span>
@@ -28,6 +28,7 @@
   <canvas id="cv"></canvas>
   <div id="tooltip"></div>
   <div id="tablewrap" style="display:none"></div>
+  <div id="barswrap" style="display:none"></div>
 </div>
 <div id="caption"></div>
 <script type="module">
@@ -142,7 +143,8 @@ if (data.years && data.years.length > 1) {
     yl.textContent = data.years[i];
     yov.textContent = data.years[i];
     tm.setYear(i);
-    if (tableOn) renderTable();
+    if (view === 'table') renderTable();
+    if (view === 'bars') renderBars();
   };
   sl.oninput = () => { setY(+sl.value); };
   const bAbs = document.getElementById('bAbs');
@@ -168,16 +170,47 @@ if (data.years && data.years.length > 1) {
 }
 
 const bMap = document.getElementById('bMap');
-bMap.onclick = () => { if (tableOn) bTable.onclick(); };
-bTable.onclick = () => {
-  tableOn = !tableOn;
-  bTable.classList.toggle('on', tableOn);
-  bMap.classList.toggle('on', !tableOn);
-  cv.style.display = tableOn ? 'none' : 'block';
-  tw.style.display = tableOn ? 'block' : 'none';
+const bBars = document.getElementById('bBars');
+const bw = document.getElementById('barswrap');
+let view = 'map';
+function setView(v) {
+  view = v;
+  tableOn = v === 'table';
+  bMap.classList.toggle('on', v === 'map');
+  bBars.classList.toggle('on', v === 'bars');
+  bTable.classList.toggle('on', v === 'table');
+  cv.style.display = v === 'map' ? 'block' : 'none';
+  tw.style.display = v === 'table' ? 'block' : 'none';
+  bw.style.display = v === 'bars' ? 'block' : 'none';
+  yov.style.display = v === 'table' ? 'none' : 'block';
   tip.style.display = 'none';
-  if (tableOn) renderTable();
-};
+  if (v === 'table') renderTable();
+  if (v === 'bars') renderBars();
+}
+bMap.onclick = () => setView('map');
+bBars.onclick = () => setView('bars');
+bTable.onclick = () => setView('table');
+
+let barsBuilt = false;
+function renderBars() {
+  const rows = [...data.items].filter(d => d.value > 0).sort((a, b) => b.value - a.value).slice(0, 60);
+  const max = rows[0] ? rows[0].value : 1;
+  if (!barsBuilt) {
+    bw.innerHTML = '<div class="barlist">' + rows.map(() =>
+      `<div class="barrow"><span class="bname"></span><span class="btrack"><span class="bfill"></span></span><span class="bval"></span></div>`).join('') + '</div>';
+    barsBuilt = true;
+  }
+  const rowEls = bw.querySelectorAll('.barrow');
+  rows.forEach((d, i) => {
+    const el = rowEls[i];
+    if (!el) return;
+    el.querySelector('.bname').textContent = `${i + 1}. ${d.name}`;
+    const f = el.querySelector('.bfill');
+    f.style.width = (100 * d.value / max) + '%';
+    f.style.background = tm.colorMode === 'flat' ? '#0a3069' : (tm.catColor.get(d.color_key || '') || '#64748b');
+    el.querySelector('.bval').textContent = fmtTotal(d.value) + ' (' + (100 * d.value / total).toFixed(1) + '%)';
+  });
+}
 const lg = document.getElementById('legend');
 function buildLegend() {
   lg.innerHTML = '';
