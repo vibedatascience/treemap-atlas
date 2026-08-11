@@ -123,3 +123,5 @@ table.dt tr:hover td { background: #fef2f2; }
 .seg button:disabled { opacity: 0.4; cursor: default; }
 .cgroup.nav { margin-left: auto; margin-right: 0; }
 .cgroup.nav .meta { margin-left: 0; }
+
+header.site h2#dstitle { flex-basis: 100%; font-size: 21px; font-weight: 700; margin-top: 6px; letter-spacing: -0.2px; }
