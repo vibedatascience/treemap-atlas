@@ -52,7 +52,7 @@
    "id": "energy",
    "title": "Energy consumption",
    "unit": "TWh",
-   "source": "Our World in Data, Energy Institute Statistical Review, 2025",
+   "source": "Energy Institute via Our World in Data, 2025",
    "source_url": "https://ourworldindata.org/grapher/primary-energy-cons",
    "category": "planet"
   },
@@ -156,7 +156,7 @@
    "id": "cereals",
    "title": "Cereal production",
    "unit": "tonnes",
-   "source": "FAOSTAT via Our World in Data",
+   "source": "FAOSTAT via Our World in Data, 2024",
    "source_url": "https://ourworldindata.org/grapher/cereal-production",
    "category": "planet"
   },
@@ -164,7 +164,7 @@
    "id": "oil",
    "title": "Oil production",
    "unit": "TWh",
-   "source": "Energy Institute Statistical Review via OWID",
+   "source": "Energy Institute via Our World in Data, 2025",
    "source_url": "https://ourworldindata.org/grapher/oil-production-by-country",
    "category": "planet"
   },
@@ -172,8 +172,8 @@
    "id": "nukes",
    "title": "Nuclear warheads",
    "unit": "warheads",
-   "source": "Federation of American Scientists via OWID ETL",
-   "source_url": "https://ourworldindata.org/grapher/nuclear-warhead-inventories",
+   "source": "Federation of American Scientists via Our World in Data, 2026",
+   "source_url": "https://ourworldindata.org/grapher/nuclear-warhead-stockpiles",
    "category": "politics"
   },
   {
