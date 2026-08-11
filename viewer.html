@@ -26,10 +26,12 @@
   <span class="meta" id="ylabel"></span>
 </div>
 <div id="stage">
+  <div id="yearoverlay"></div>
   <canvas id="cv"></canvas>
   <div id="tooltip"></div>
   <div id="tablewrap" style="display:none"></div>
 </div>
+<div id="caption"></div>
 <script type="module">
 import { Treemap } from './treemap-engine.js';
 
@@ -42,6 +44,13 @@ const entry = reg.datasets.find(d => d.id === id) || {};
 document.getElementById('dsid').textContent = id;
 document.title = `treemap://${id}`;
 const total = data.items.reduce((s, d) => s + d.value, 0);
+const cap = document.getElementById('caption');
+const yov = document.getElementById('yearoverlay');
+function setCaption(y) {
+  cap.innerHTML = `<b>${data.title}</b> \u2014 ${data.items.length} items, measured in ${data.unit}. Source: <a class="srclink" href="${data.source_url || '#'}" target="_blank" rel="noopener">${data.source}</a>`;
+  yov.textContent = y || data.date || '';
+}
+setCaption(data.years ? data.years[data.years.length - 1] : data.date);
 document.getElementById('dsmeta').innerHTML =
   `${data.items.length} items \u00b7 ${fmtTotal(total)} ${data.unit} \u00b7 data: <a class="srclink" href="${data.source_url || '#'}" target="_blank" rel="noopener">${data.source}</a>`;
 
@@ -123,6 +132,7 @@ if (data.years && data.years.length > 1) {
   let playing = null;
   const setY = i => {
     yl.textContent = data.years[i];
+    yov.textContent = data.years[i];
     tm.setYear(i);
     if (tableOn) renderTable();
   };

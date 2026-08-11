@@ -107,3 +107,9 @@ table.dt tr:hover td { background: #fef2f2; }
 #timebar { padding-top: 8px; padding-bottom: 8px; }
 #yslider { flex: 1; max-width: 480px; accent-color: var(--red); }
 #ylabel { min-width: 46px; margin-left: 0; color: var(--ink); font-weight: 600; }
+
+#stage { position: relative; }
+#yearoverlay { position: absolute; top: 10px; right: 18px; font-size: 44px; font-weight: 700; color: rgba(15,23,42,0.18); pointer-events: none; z-index: 4; letter-spacing: 1px; }
+#caption { padding: 12px 24px 20px; font-size: 13px; color: var(--ink); border-top: 1px solid var(--line); line-height: 1.6; }
+#caption b { font-weight: 600; }
+#stage { height: calc(100vh - 160px); }
