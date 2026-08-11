@@ -21,6 +21,7 @@
 </div>
 <div class="controls" id="timebar" style="display:none">
   <button id="bPlay">play</button>
+  <button id="bAbs" title="treemap area scales with the year's total">absolute scale</button>
   <input type="range" id="yslider" min="0" max="0" value="0">
   <span class="meta" id="ylabel"></span>
 </div>
@@ -126,6 +127,12 @@ if (data.years && data.years.length > 1) {
     if (tableOn) renderTable();
   };
   sl.oninput = () => { setY(+sl.value); };
+  const bAbs = document.getElementById('bAbs');
+  bAbs.onclick = () => {
+    const on = !bAbs.classList.contains('on');
+    bAbs.classList.toggle('on', on);
+    tm.setAbsolute(on);
+  };
   bPlay.onclick = () => {
     if (playing) { clearInterval(playing); playing = null; bPlay.textContent = 'play'; bPlay.classList.remove('on'); return; }
     if (+sl.value >= data.years.length - 1) sl.value = 0;

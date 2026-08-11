@@ -77,17 +77,25 @@ export class Treemap {
   }
 
   layout() {
-    const W = this.canvas.width / devicePixelRatio, H = this.canvas.height / devicePixelRatio;
+    let W = this.canvas.width / devicePixelRatio, H = this.canvas.height / devicePixelRatio;
+    let ox = 0, oy = 0;
+    if (this.absoluteMode && this.maxTotal) {
+      const cur = this.data.items.reduce((s, d) => s + (d.value > 0 ? d.value : 0), 0);
+      const f = Math.sqrt(Math.max(0.0001, cur / this.maxTotal));
+      ox = W * (1 - f) / 2; oy = H * (1 - f) / 2;
+      W *= f; H *= f;
+    }
+    this.ox = ox; this.oy = oy;
     const pad = 2, header = 18;
     if (this.root.children[0] && this.root.children[0].children) {
-      this.squarify(this.root.children, 0, 0, W, H);
+      this.squarify(this.root.children, ox, oy, W, H);
       for (const g of this.root.children) {
         const gx = g.x + pad, gy = g.y + header, gw = Math.max(0, g.w - pad * 2), gh = Math.max(0, g.h - header - pad);
         this.squarify(g.children, gx, gy, gw, gh);
       }
       this.leaves = this.root.children.flatMap(g => g.children);
     } else {
-      this.squarify(this.root.children, 0, 0, W, H);
+      this.squarify(this.root.children, ox, oy, W, H);
       this.leaves = this.root.children;
     }
   }
@@ -260,6 +268,23 @@ export class Treemap {
       else { for (const n of this.leaves) { const b = targets.get(n); if (b) Object.assign(n, b); } this.draw(); }
     };
     requestAnimationFrame(step);
+  }
+
+  computeMaxTotal() {
+    if (!this.data.years) { this.maxTotal = null; return; }
+    let mx = 0;
+    for (let i = 0; i < this.data.years.length; i++) {
+      let t = 0;
+      for (const it of this.data.items) if (it.values && it.values[i] != null) t += it.values[i];
+      mx = Math.max(mx, t);
+    }
+    this.maxTotal = mx;
+  }
+
+  setAbsolute(on) {
+    this.absoluteMode = on;
+    if (on && !this.maxTotal) this.computeMaxTotal();
+    this.animateLayout(() => {});
   }
 
   setYear(idx) {
