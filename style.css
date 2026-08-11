@@ -125,3 +125,8 @@ table.dt tr:hover td { background: #fef2f2; }
 .cgroup.nav .meta { margin-left: 0; }
 
 header.site h2#dstitle { flex-basis: 100%; font-size: 21px; font-weight: 700; margin-top: 6px; letter-spacing: -0.2px; }
+
+header.site { display: block; }
+header.site .row1 { margin-bottom: 4px; }
+header.site .row2 { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+header.site h2#dstitle { font-size: 21px; font-weight: 700; margin: 0; letter-spacing: -0.2px; flex-basis: auto; }
