@@ -10,10 +10,10 @@
   },
   {
    "id": "cities",
-   "title": "2,000 biggest cities",
+   "title": "Cities over 300k",
    "unit": "people",
-   "source": "simplemaps World Cities Database (free tier), metro population",
-   "source_url": "https://simplemaps.com/data/world-cities",
+   "source": "UN World Urbanization Prospects 2025 (DEGURBA urban agglomerations)",
+   "source_url": "https://population.un.org/wup/downloads",
    "category": "people"
   },
   {
