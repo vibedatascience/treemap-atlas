@@ -1,0 +1,45 @@
+{
+ "title": "Same wealth pyramid, but sized by people",
+ "unit": "adults",
+ "source": "UBS Global Wealth Report 2025 (year-end 2024) + Forbes Real-Time Billionaires 2026-08-13",
+ "source_url": "https://github.com/komed3/rtb-api",
+ "date": "2026",
+ "items": [
+  {
+   "name": "Billionaires (3,385 people, $20.4T)",
+   "value": 3385,
+   "parent": "Own $1B or more",
+   "color_key": "Billionaires"
+  },
+  {
+   "name": "The $5M-$1B club (~8 million people, ~$99T)",
+   "value": 8000000,
+   "parent": "Own $1M-$1B",
+   "color_key": "Millionaires"
+  },
+  {
+   "name": "Everyday millionaires $1M-$5M (~52 million people, $107T)",
+   "value": 52000000,
+   "parent": "Own $1M-$1B",
+   "color_key": "Millionaires"
+  },
+  {
+   "name": "$100K-$1M (628 million people, $184T)",
+   "value": 628000000,
+   "parent": "Own $100K-$1M",
+   "color_key": "Upper middle"
+  },
+  {
+   "name": "$10K-$100K (1.57 billion people, $57T)",
+   "value": 1570000000,
+   "parent": "Own $10K-$100K",
+   "color_key": "Lower middle"
+  },
+  {
+   "name": "Under $10K (1.55 billion people, $2.7T)",
+   "value": 1550000000,
+   "parent": "Own under $10K",
+   "color_key": "Bottom of pyramid"
+  }
+ ]
+}
