@@ -11,6 +11,7 @@
   <div class="row1"><h1><a href="index.html"><span class="proto">treemap://</span><span id="dsid">...</span></a></h1></div>
   <div class="row2"><span class="tag" id="dsmeta"></span></div>
 </header>
+<div id="howto"></div>
 <div class="controls">
   <span class="cgroup"><span class="clabel">view</span><span class="seg"><button id="bMap" class="on">map</button><button id="bBars">bars</button><button id="bTable">table</button></span></span>
   <span class="cgroup"><span class="clabel">color</span><span class="seg"><button id="bFlat">flat</button><button id="bCat" class="on">category</button></span><span id="legend"></span></span>
@@ -23,7 +24,6 @@
   <input type="range" id="yslider" min="0" max="0" value="0">
   <span class="meta" id="ylabel"></span>
 </div>
-<div id="howto"></div>
 <div id="stage">
   <div id="yearoverlay"></div>
   <canvas id="cv"></canvas>
@@ -54,10 +54,8 @@ function setCaption(y) {
 setCaption(data.years ? data.years[data.years.length - 1] : data.date);
 const grouped = data.items.some(d => d.parent);
 document.getElementById('howto').textContent =
-  'How to read: each rectangle is one item and its area is proportional to its value in ' + data.unit +
-  '. Bigger means more. Items are placed largest first, so the biggest sit in the top left and sizes shrink toward the bottom right.' +
-  (grouped ? ' Rectangles are grouped into labeled blocks, and the blocks are also ordered by their totals. Click a block to zoom into it.' : '') +
-  ' Hover any rectangle for its exact value, share, and rank.';
+  'how to read: area = value in ' + data.unit + ', sorted big to small from top left' +
+  (grouped ? ', grouped in labeled blocks (click to zoom)' : '') + ', hover for details';
 document.getElementById('dsmeta').innerHTML =
   `${data.items.length} items \u00b7 ${fmtTotal(total)} ${data.unit} \u00b7 data: <a class="srclink" href="${data.source_url || '#'}" target="_blank" rel="noopener">${data.source}</a>`;
 
