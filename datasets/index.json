@@ -233,19 +233,11 @@
    "category": "economy"
   },
   {
-   "id": "wealth",
-   "title": "All human wealth: every billionaire vs everyone else",
+   "id": "sp500",
+   "title": "S&P 500 market cap",
    "unit": "USD",
-   "source": "Forbes Real-Time Billionaires 2026-08-13 + UBS Global Wealth Report 2025",
-   "source_url": "https://github.com/komed3/rtb-api",
-   "category": "economy"
-  },
-  {
-   "id": "wealthpop",
-   "title": "Same wealth pyramid, but sized by people",
-   "unit": "adults",
-   "source": "UBS Global Wealth Report 2025",
-   "source_url": "https://github.com/komed3/rtb-api",
+   "source": "companiesmarketcap.com, Aug 2026",
+   "source_url": "https://companiesmarketcap.com",
    "category": "economy"
   }
  ]
