@@ -23,6 +23,7 @@
   <input type="range" id="yslider" min="0" max="0" value="0">
   <span class="meta" id="ylabel"></span>
 </div>
+<div id="howto"></div>
 <div id="stage">
   <div id="yearoverlay"></div>
   <canvas id="cv"></canvas>
@@ -51,6 +52,12 @@ function setCaption(y) {
   yov.textContent = y || data.date || '';
 }
 setCaption(data.years ? data.years[data.years.length - 1] : data.date);
+const grouped = data.items.some(d => d.parent);
+document.getElementById('howto').textContent =
+  'How to read: each rectangle is one item and its area is proportional to its value in ' + data.unit +
+  '. Bigger means more. Items are placed largest first, so the biggest sit in the top left and sizes shrink toward the bottom right.' +
+  (grouped ? ' Rectangles are grouped into labeled blocks, and the blocks are also ordered by their totals. Click a block to zoom into it.' : '') +
+  ' Hover any rectangle for its exact value, share, and rank.';
 document.getElementById('dsmeta').innerHTML =
   `${data.items.length} items \u00b7 ${fmtTotal(total)} ${data.unit} \u00b7 data: <a class="srclink" href="${data.source_url || '#'}" target="_blank" rel="noopener">${data.source}</a>`;
 
