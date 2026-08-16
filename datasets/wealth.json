@@ -20316,34 +20316,41 @@
    "color_key": "Billionaires"
   },
   {
-   "name": "The $5M-$1B club (~8 million people)",
+   "name": "$5M-$1B club | 8M people | avg $12M",
    "value": 98601919113000,
    "parent": "The other 3.8 billion adults",
    "color_key": "Millionaires"
   },
   {
-   "name": "Everyday millionaires $1M-$5M (~52 million people)",
+   "name": "$1M-$5M | 52M people | avg $2M",
    "value": 107000000000000,
    "parent": "The other 3.8 billion adults",
    "color_key": "Millionaires"
   },
   {
-   "name": "$100K-$1M (628 million people)",
+   "name": "$100K-$1M | 628M people | avg $293K",
    "value": 184000000000000,
    "parent": "The other 3.8 billion adults",
    "color_key": "Upper middle"
   },
   {
-   "name": "$10K-$100K (1.57 billion people)",
+   "name": "$10K-$100K | 1.57B people | avg $36K",
    "value": 57000000000000,
    "parent": "The other 3.8 billion adults",
    "color_key": "Lower middle"
   },
   {
-   "name": "Under $10K (1.55 billion people)",
+   "name": "Under $10K | 1.55B people | avg $1.7K",
    "value": 2710000000000,
    "parent": "The other 3.8 billion adults",
    "color_key": "Bottom of pyramid"
   }
- ]
+ ],
+ "colors": {
+  "Billionaires": "#E60023",
+  "Millionaires": "#f97316",
+  "Upper middle": "#0a3069",
+  "Lower middle": "#0d9488",
+  "Bottom of pyramid": "#facc15"
+ }
 }
