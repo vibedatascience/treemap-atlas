@@ -225,6 +225,22 @@
    "category": "people"
   },
   {
+   "id": "wealth",
+   "title": "All human wealth: every billionaire vs everyone else",
+   "unit": "USD",
+   "source": "Forbes Real-Time Billionaires 2026-08-13 + UBS Global Wealth Report 2025",
+   "source_url": "https://github.com/komed3/rtb-api",
+   "category": "economy"
+  },
+  {
+   "id": "wealthpop",
+   "title": "Same wealth pyramid, but sized by people",
+   "unit": "adults",
+   "source": "UBS Global Wealth Report 2025",
+   "source_url": "https://github.com/komed3/rtb-api",
+   "category": "economy"
+  },
+  {
    "id": "aerodefense",
    "title": "Aerospace & defense market cap",
    "unit": "USD",
