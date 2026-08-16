@@ -255,6 +255,14 @@
    "source": "companiesmarketcap.com, Aug 2026",
    "source_url": "https://companiesmarketcap.com",
    "category": "economy"
+  },
+  {
+   "id": "wealthvs",
+   "title": "Wealth vs people: press play",
+   "unit": "USD / adults",
+   "source": "Forbes RTB + UBS GWR 2025",
+   "source_url": "https://github.com/komed3/rtb-api",
+   "category": "economy"
   }
  ]
 }
