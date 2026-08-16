@@ -137,4 +137,4 @@ header.site h2#dstitle { font-size: 21px; font-weight: 700; margin: 0; letter-sp
 .btrack { flex: 1; background: #f1f5f9; border-radius: 3px; height: 15px; overflow: hidden; }
 .bfill { display: block; height: 100%; width: 0; transition: width 0.5s cubic-bezier(0.65,0,0.35,1); }
 .bval { width: 130px; min-width: 130px; color: var(--slate); font-variant-numeric: tabular-nums; }
-#howto { padding: 4px 24px; font-size: 11px; color: var(--ink); opacity: 0.55; line-height: 1.4; }
+#howto { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border: 1px solid var(--line); border-radius: 50%; font-size: 10px; color: var(--ink); opacity: 0.6; cursor: help; margin-left: 8px; }
