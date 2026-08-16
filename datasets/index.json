@@ -223,6 +223,14 @@
    "source": "US Census Bureau intercensal estimates via JoshData/historical-state-population-csv, 1900-2025",
    "source_url": "https://github.com/JoshData/historical-state-population-csv",
    "category": "people"
+  },
+  {
+   "id": "aerodefense",
+   "title": "Aerospace & defense market cap",
+   "unit": "USD",
+   "source": "companiesmarketcap.com, Aug 2026",
+   "source_url": "https://companiesmarketcap.com/aerospace/largest-companies-by-market-cap/",
+   "category": "economy"
   }
  ]
 }
