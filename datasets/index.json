@@ -1,268 +1,276 @@
 {
- "datasets": [
-  {
-   "id": "population",
-   "title": "World population",
-   "unit": "people",
-   "source": "World Bank, World Development Indicators (SP.POP.TOTL), 2024",
-   "source_url": "https://data.worldbank.org/indicator/SP.POP.TOTL",
-   "category": "people"
-  },
-  {
-   "id": "cities",
-   "title": "Cities over 300k",
-   "unit": "people",
-   "source": "UN World Urbanization Prospects 2025 (DEGURBA urban agglomerations)",
-   "source_url": "https://population.un.org/wup/downloads",
-   "category": "people"
-  },
-  {
-   "id": "house",
-   "title": "US House seats",
-   "unit": "seats",
-   "source": "Wikipedia: List of current members of the U.S. House, retrieved Aug 10, 2026 (CC BY-SA)",
-   "source_url": "https://en.wikipedia.org/wiki/List_of_current_members_of_the_United_States_House_of_Representatives",
-   "category": "politics"
-  },
-  {
-   "id": "gdp",
-   "title": "GDP by country",
-   "unit": "USD",
-   "source": "World Bank, World Development Indicators (NY.GDP.MKTP.CD), 2024",
-   "source_url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD",
-   "category": "economy"
-  },
-  {
-   "id": "military",
-   "title": "Military spending",
-   "unit": "USD",
-   "source": "World Bank / SIPRI (MS.MIL.XPND.CD), 2024",
-   "source_url": "https://data.worldbank.org/indicator/MS.MIL.XPND.CD",
-   "category": "economy"
-  },
-  {
-   "id": "co2",
-   "title": "CO2 emissions",
-   "unit": "Mt CO2",
-   "source": "World Bank, World Development Indicators (EN.GHG.CO2.MT.CE.AR5), 2023",
-   "source_url": "https://data.worldbank.org/indicator/EN.GHG.CO2.MT.CE.AR5",
-   "category": "planet"
-  },
-  {
-   "id": "energy",
-   "title": "Energy consumption",
-   "unit": "TWh",
-   "source": "Energy Institute via Our World in Data, 2025",
-   "source_url": "https://ourworldindata.org/grapher/primary-energy-cons",
-   "category": "planet"
-  },
-  {
-   "id": "netflix",
-   "title": "Netflix hours viewed",
-   "unit": "hours",
-   "source": "Netflix Engagement Reports via TidyTuesday 2025-07-29",
-   "source_url": "https://github.com/rfordatascience/tidytuesday/tree/main/data/2025/2025-07-29",
-   "category": "culture"
-  },
-  {
-   "id": "himalaya",
-   "title": "Himalayan expeditions by peak",
-   "unit": "expeditions",
-   "source": "The Himalayan Database via TidyTuesday 2025-01-21",
-   "source_url": "https://github.com/rfordatascience/tidytuesday/tree/main/data/2025/2025-01-21",
-   "category": "sport"
-  },
-  {
-   "id": "measles",
-   "title": "Measles cases 2024",
-   "unit": "cases",
-   "source": "WHO provisional measles data via TidyTuesday 2025-06-24",
-   "source_url": "https://github.com/rfordatascience/tidytuesday/tree/main/data/2025/2025-06-24",
-   "category": "health"
-  },
-  {
-   "id": "budget",
-   "title": "US federal budget FY2025",
-   "unit": "USD",
-   "source": "USAspending.gov toptier agency budget authority, FY2025",
-   "source_url": "https://www.usaspending.gov/agency",
-   "category": "economy"
-  },
-  {
-   "id": "wikipedia",
-   "title": "Wikipedia top articles, July 2026",
-   "unit": "pageviews",
-   "source": "Wikimedia Pageviews API, English Wikipedia, July 2026",
-   "source_url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/top/en.wikipedia/all-access/2026/07/all-days",
-   "category": "culture"
-  },
-  {
-   "id": "solar",
-   "title": "Solar system by mass (excl. Sun)",
-   "unit": "x10^21 kg",
-   "source": "NASA planetary fact sheets / IAU",
-   "source_url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/",
-   "category": "science"
-  },
-  {
-   "id": "boxoffice",
-   "title": "Highest-grossing films",
-   "unit": "USD",
-   "source": "Box Office Mojo via Wikipedia: List of highest-grossing films",
-   "source_url": "https://en.wikipedia.org/wiki/List_of_highest-grossing_films",
-   "category": "culture"
-  },
-  {
-   "id": "languages",
-   "title": "Languages by native speakers",
-   "unit": "speakers",
-   "source": "Ethnologue 2025 via Wikipedia",
-   "source_url": "https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers",
-   "category": "people"
-  },
-  {
-   "id": "books",
-   "title": "Best-selling books",
-   "unit": "copies sold",
-   "source": "Wikipedia: List of best-selling books",
-   "source_url": "https://en.wikipedia.org/wiki/List_of_best-selling_books",
-   "category": "culture"
-  },
-  {
-   "id": "music",
-   "title": "Best-selling music artists",
-   "unit": "certified units",
-   "source": "Wikipedia: List of best-selling music artists",
-   "source_url": "https://en.wikipedia.org/wiki/List_of_best-selling_music_artists",
-   "category": "culture"
-  },
-  {
-   "id": "games",
-   "title": "Best-selling video games",
-   "unit": "copies sold",
-   "source": "Wikipedia: List of best-selling video games",
-   "source_url": "https://en.wikipedia.org/wiki/List_of_best-selling_video_games",
-   "category": "culture"
-  },
-  {
-   "id": "refugees",
-   "title": "Refugees by origin",
-   "unit": "refugees",
-   "source": "UNHCR Refugee Data Finder API, 2024",
-   "source_url": "https://www.unhcr.org/refugee-statistics/",
-   "category": "people"
-  },
-  {
-   "id": "cereals",
-   "title": "Cereal production",
-   "unit": "tonnes",
-   "source": "FAOSTAT via Our World in Data, 2024",
-   "source_url": "https://ourworldindata.org/grapher/cereal-production",
-   "category": "planet"
-  },
-  {
-   "id": "oil",
-   "title": "Oil production",
-   "unit": "TWh",
-   "source": "Energy Institute via Our World in Data, 2025",
-   "source_url": "https://ourworldindata.org/grapher/oil-production-by-country",
-   "category": "planet"
-  },
-  {
-   "id": "nukes",
-   "title": "Nuclear warheads",
-   "unit": "warheads",
-   "source": "Federation of American Scientists via Our World in Data, 2026",
-   "source_url": "https://ourworldindata.org/grapher/nuclear-warhead-stockpiles",
-   "category": "politics"
-  },
-  {
-   "id": "space",
-   "title": "Objects launched into space",
-   "unit": "objects",
-   "source": "UNOOSA via OWID ETL",
-   "source_url": "https://ourworldindata.org/grapher/cumulative-number-of-objects-launched-into-outer-space",
-   "category": "science"
-  },
-  {
-   "id": "meat",
-   "title": "Meat production",
-   "unit": "tonnes",
-   "source": "FAOSTAT via OWID ETL",
-   "source_url": "https://ourworldindata.org/grapher/meat-production-tonnes",
-   "category": "planet"
-  },
-  {
-   "id": "cumco2",
-   "title": "Cumulative CO2 since 1750",
-   "unit": "t CO2",
-   "source": "Global Carbon Budget via OWID ETL",
-   "source_url": "https://ourworldindata.org/grapher/cumulative-co-emissions",
-   "category": "planet"
-  },
-  {
-   "id": "solarcap",
-   "title": "Installed solar capacity",
-   "unit": "GW",
-   "source": "IRENA via OWID ETL",
-   "source_url": "https://ourworldindata.org/grapher/installed-solar-pv-capacity",
-   "category": "planet"
-  },
-  {
-   "id": "ai",
-   "title": "Large-scale AI systems",
-   "unit": "systems",
-   "source": "Epoch AI via OWID ETL",
-   "source_url": "https://ourworldindata.org/grapher/cumulative-number-of-large-scale-ai-systems-by-country",
-   "category": "science"
-  },
-  {
-   "id": "usstates",
-   "title": "US population by state",
-   "unit": "people",
-   "source": "US Census Bureau intercensal estimates via JoshData/historical-state-population-csv, 1900-2025",
-   "source_url": "https://github.com/JoshData/historical-state-population-csv",
-   "category": "people"
-  },
-  {
-   "id": "wealth",
-   "title": "All human wealth: every billionaire vs everyone else",
-   "unit": "USD",
-   "source": "Forbes Real-Time Billionaires 2026-08-13 + UBS Global Wealth Report 2025",
-   "source_url": "https://github.com/komed3/rtb-api",
-   "category": "economy"
-  },
-  {
-   "id": "wealthpop",
-   "title": "Same wealth pyramid, but sized by people",
-   "unit": "adults",
-   "source": "UBS Global Wealth Report 2025",
-   "source_url": "https://github.com/komed3/rtb-api",
-   "category": "economy"
-  },
-  {
-   "id": "aerodefense",
-   "title": "Aerospace & defense market cap",
-   "unit": "USD",
-   "source": "companiesmarketcap.com, Aug 2026",
-   "source_url": "https://companiesmarketcap.com/aerospace/largest-companies-by-market-cap/",
-   "category": "economy"
-  },
-  {
-   "id": "sp500",
-   "title": "S&P 500 market cap",
-   "unit": "USD",
-   "source": "companiesmarketcap.com, Aug 2026",
-   "source_url": "https://companiesmarketcap.com",
-   "category": "economy"
-  },
-  {
-   "id": "wealthvs",
-   "title": "Wealth vs people: press play",
-   "unit": "USD / adults",
-   "source": "Forbes RTB + UBS GWR 2025",
-   "source_url": "https://github.com/komed3/rtb-api",
-   "category": "economy"
-  }
- ]
+  "datasets": [
+    {
+      "id": "population",
+      "title": "World population",
+      "unit": "people",
+      "source": "World Bank, World Development Indicators (SP.POP.TOTL), 2024",
+      "source_url": "https://data.worldbank.org/indicator/SP.POP.TOTL",
+      "category": "people"
+    },
+    {
+      "id": "cities",
+      "title": "Cities over 300k",
+      "unit": "people",
+      "source": "UN World Urbanization Prospects 2025 (DEGURBA urban agglomerations)",
+      "source_url": "https://population.un.org/wup/downloads",
+      "category": "people"
+    },
+    {
+      "id": "house",
+      "title": "US House seats",
+      "unit": "seats",
+      "source": "Wikipedia: List of current members of the U.S. House, retrieved Aug 10, 2026 (CC BY-SA)",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_current_members_of_the_United_States_House_of_Representatives",
+      "category": "politics"
+    },
+    {
+      "id": "gdp",
+      "title": "GDP by country",
+      "unit": "USD",
+      "source": "World Bank, World Development Indicators (NY.GDP.MKTP.CD), 2024",
+      "source_url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD",
+      "category": "economy"
+    },
+    {
+      "id": "military",
+      "title": "Military spending",
+      "unit": "USD",
+      "source": "World Bank / SIPRI (MS.MIL.XPND.CD), 2024",
+      "source_url": "https://data.worldbank.org/indicator/MS.MIL.XPND.CD",
+      "category": "economy"
+    },
+    {
+      "id": "co2",
+      "title": "CO2 emissions",
+      "unit": "Mt CO2",
+      "source": "World Bank, World Development Indicators (EN.GHG.CO2.MT.CE.AR5), 2023",
+      "source_url": "https://data.worldbank.org/indicator/EN.GHG.CO2.MT.CE.AR5",
+      "category": "planet"
+    },
+    {
+      "id": "energy",
+      "title": "Energy consumption",
+      "unit": "TWh",
+      "source": "Energy Institute via Our World in Data, 2025",
+      "source_url": "https://ourworldindata.org/grapher/primary-energy-cons",
+      "category": "planet"
+    },
+    {
+      "id": "netflix",
+      "title": "Netflix hours viewed",
+      "unit": "hours",
+      "source": "Netflix Engagement Reports via TidyTuesday 2025-07-29",
+      "source_url": "https://github.com/rfordatascience/tidytuesday/tree/main/data/2025/2025-07-29",
+      "category": "culture"
+    },
+    {
+      "id": "himalaya",
+      "title": "Himalayan expeditions by peak",
+      "unit": "expeditions",
+      "source": "The Himalayan Database via TidyTuesday 2025-01-21",
+      "source_url": "https://github.com/rfordatascience/tidytuesday/tree/main/data/2025/2025-01-21",
+      "category": "sport"
+    },
+    {
+      "id": "measles",
+      "title": "Measles cases 2024",
+      "unit": "cases",
+      "source": "WHO provisional measles data via TidyTuesday 2025-06-24",
+      "source_url": "https://github.com/rfordatascience/tidytuesday/tree/main/data/2025/2025-06-24",
+      "category": "health"
+    },
+    {
+      "id": "budget",
+      "title": "US federal budget FY2025",
+      "unit": "USD",
+      "source": "USAspending.gov toptier agency budget authority, FY2025",
+      "source_url": "https://www.usaspending.gov/agency",
+      "category": "economy"
+    },
+    {
+      "id": "wikipedia",
+      "title": "Wikipedia top articles, July 2026",
+      "unit": "pageviews",
+      "source": "Wikimedia Pageviews API, English Wikipedia, July 2026",
+      "source_url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/top/en.wikipedia/all-access/2026/07/all-days",
+      "category": "culture"
+    },
+    {
+      "id": "solar",
+      "title": "Solar system by mass (excl. Sun)",
+      "unit": "x10^21 kg",
+      "source": "NASA planetary fact sheets / IAU",
+      "source_url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/",
+      "category": "science"
+    },
+    {
+      "id": "boxoffice",
+      "title": "Highest-grossing films",
+      "unit": "USD",
+      "source": "Box Office Mojo via Wikipedia: List of highest-grossing films",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_highest-grossing_films",
+      "category": "culture"
+    },
+    {
+      "id": "languages",
+      "title": "Languages by native speakers",
+      "unit": "speakers",
+      "source": "Ethnologue 2025 via Wikipedia",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers",
+      "category": "people"
+    },
+    {
+      "id": "books",
+      "title": "Best-selling books",
+      "unit": "copies sold",
+      "source": "Wikipedia: List of best-selling books",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_best-selling_books",
+      "category": "culture"
+    },
+    {
+      "id": "music",
+      "title": "Best-selling music artists",
+      "unit": "certified units",
+      "source": "Wikipedia: List of best-selling music artists",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_best-selling_music_artists",
+      "category": "culture"
+    },
+    {
+      "id": "games",
+      "title": "Best-selling video games",
+      "unit": "copies sold",
+      "source": "Wikipedia: List of best-selling video games",
+      "source_url": "https://en.wikipedia.org/wiki/List_of_best-selling_video_games",
+      "category": "culture"
+    },
+    {
+      "id": "refugees",
+      "title": "Refugees by origin",
+      "unit": "refugees",
+      "source": "UNHCR Refugee Data Finder API, 2024",
+      "source_url": "https://www.unhcr.org/refugee-statistics/",
+      "category": "people"
+    },
+    {
+      "id": "cereals",
+      "title": "Cereal production",
+      "unit": "tonnes",
+      "source": "FAOSTAT via Our World in Data, 2024",
+      "source_url": "https://ourworldindata.org/grapher/cereal-production",
+      "category": "planet"
+    },
+    {
+      "id": "oil",
+      "title": "Oil production",
+      "unit": "TWh",
+      "source": "Energy Institute via Our World in Data, 2025",
+      "source_url": "https://ourworldindata.org/grapher/oil-production-by-country",
+      "category": "planet"
+    },
+    {
+      "id": "nukes",
+      "title": "Nuclear warheads",
+      "unit": "warheads",
+      "source": "Federation of American Scientists via Our World in Data, 2026",
+      "source_url": "https://ourworldindata.org/grapher/nuclear-warhead-stockpiles",
+      "category": "politics"
+    },
+    {
+      "id": "space",
+      "title": "Objects launched into space",
+      "unit": "objects",
+      "source": "UNOOSA via OWID ETL",
+      "source_url": "https://ourworldindata.org/grapher/cumulative-number-of-objects-launched-into-outer-space",
+      "category": "science"
+    },
+    {
+      "id": "meat",
+      "title": "Meat production",
+      "unit": "tonnes",
+      "source": "FAOSTAT via OWID ETL",
+      "source_url": "https://ourworldindata.org/grapher/meat-production-tonnes",
+      "category": "planet"
+    },
+    {
+      "id": "cumco2",
+      "title": "Cumulative CO2 since 1750",
+      "unit": "t CO2",
+      "source": "Global Carbon Budget via OWID ETL",
+      "source_url": "https://ourworldindata.org/grapher/cumulative-co-emissions",
+      "category": "planet"
+    },
+    {
+      "id": "solarcap",
+      "title": "Installed solar capacity",
+      "unit": "GW",
+      "source": "IRENA via OWID ETL",
+      "source_url": "https://ourworldindata.org/grapher/installed-solar-pv-capacity",
+      "category": "planet"
+    },
+    {
+      "id": "ai",
+      "title": "Large-scale AI systems",
+      "unit": "systems",
+      "source": "Epoch AI via OWID ETL",
+      "source_url": "https://ourworldindata.org/grapher/cumulative-number-of-large-scale-ai-systems-by-country",
+      "category": "science"
+    },
+    {
+      "id": "usstates",
+      "title": "US population by state",
+      "unit": "people",
+      "source": "US Census Bureau intercensal estimates via JoshData/historical-state-population-csv, 1900-2025",
+      "source_url": "https://github.com/JoshData/historical-state-population-csv",
+      "category": "people"
+    },
+    {
+      "id": "wealth",
+      "title": "All human wealth: every billionaire vs everyone else",
+      "unit": "USD",
+      "source": "Forbes Real-Time Billionaires 2026-08-13 + UBS Global Wealth Report 2025",
+      "source_url": "https://github.com/komed3/rtb-api",
+      "category": "economy"
+    },
+    {
+      "id": "wealthpop",
+      "title": "Same wealth pyramid, but sized by people",
+      "unit": "adults",
+      "source": "UBS Global Wealth Report 2025",
+      "source_url": "https://github.com/komed3/rtb-api",
+      "category": "economy"
+    },
+    {
+      "id": "aerodefense",
+      "title": "Aerospace & defense market cap",
+      "unit": "USD",
+      "source": "companiesmarketcap.com, Aug 2026",
+      "source_url": "https://companiesmarketcap.com/aerospace/largest-companies-by-market-cap/",
+      "category": "economy"
+    },
+    {
+      "id": "sp500",
+      "title": "S&P 500 market cap",
+      "unit": "USD",
+      "source": "companiesmarketcap.com, Aug 2026",
+      "source_url": "https://companiesmarketcap.com",
+      "category": "economy"
+    },
+    {
+      "id": "wealthvs",
+      "title": "Wealth vs people: press play",
+      "unit": "USD / adults",
+      "source": "Forbes RTB + UBS GWR 2025",
+      "source_url": "https://github.com/komed3/rtb-api",
+      "category": "economy"
+    },
+    {
+      "id": "indialang",
+      "title": "Indian languages by mother tongue",
+      "unit": "speakers",
+      "source": "Census of India 2011, Table C-16 (grouped mother tongue totals)",
+      "source_url": "https://censusindia.gov.in/census.website/data/census-tables",
+      "category": "people"
+    }
+  ]
 }
