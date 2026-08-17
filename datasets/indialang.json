@@ -1,0 +1,206 @@
+{
+  "title": "Indian languages by mother tongue",
+  "unit": "speakers",
+  "source": "Census of India 2011, Table C-16 (grouped mother tongue totals)",
+  "date": "2011",
+  "items": [
+    {
+      "name": "Hindi",
+      "value": 528347193,
+      "parent": "Indo-Aryan",
+      "color_key": "Indo-Aryan"
+    },
+    {
+      "name": "Bengali",
+      "value": 97237669,
+      "parent": "Indo-Aryan",
+      "color_key": "Indo-Aryan"
+    },
+    {
+      "name": "Marathi",
+      "value": 83026680,
+      "parent": "Indo-Aryan",
+      "color_key": "Indo-Aryan"
+    },
+    {
+      "name": "Telugu",
+      "value": 81127740,
+      "parent": "Dravidian",
+      "color_key": "Dravidian"
+    },
+    {
+      "name": "Tamil",
+      "value": 69026881,
+      "parent": "Dravidian",
+      "color_key": "Dravidian"
+    },
+    {
+      "name": "Gujarati",
+      "value": 55492554,
+      "parent": "Indo-Aryan",
+      "color_key": "Indo-Aryan"
+    },
+    {
+      "name": "Urdu",
+      "value": 50772631,
+      "parent": "Indo-Aryan",
+      "color_key": "Indo-Aryan"
+    },
+    {
+      "name": "Kannada",
+      "value": 43706512,
+      "parent": "Dravidian",
+      "color_key": "Dravidian"
+    },
+    {
+      "name": "Odia",
+      "value": 37521324,
+      "parent": "Indo-Aryan",
+      "color_key": "Indo-Aryan"
+    },
+    {
+      "name": "Malayalam",
+      "value": 34838819,
+      "parent": "Dravidian",
+      "color_key": "Dravidian"
+    },
+    {
+      "name": "Punjabi",
+      "value": 33124726,
+      "parent": "Indo-Aryan",
+      "color_key": "Indo-Aryan"
+    },
+    {
+      "name": "Assamese",
+      "value": 15311351,
+      "parent": "Indo-Aryan",
+      "color_key": "Indo-Aryan"
+    },
+    {
+      "name": "Maithili",
+      "value": 13583464,
+      "parent": "Indo-Aryan",
+      "color_key": "Indo-Aryan"
+    },
+    {
+      "name": "Bhili/Bhilodi",
+      "value": 10413637,
+      "parent": "Indo-Aryan",
+      "color_key": "Indo-Aryan"
+    },
+    {
+      "name": "Santali",
+      "value": 7368192,
+      "parent": "Austroasiatic",
+      "color_key": "Austroasiatic"
+    },
+    {
+      "name": "Kashmiri",
+      "value": 6797587,
+      "parent": "Indo-Aryan",
+      "color_key": "Indo-Aryan"
+    },
+    {
+      "name": "Gondi",
+      "value": 2984453,
+      "parent": "Dravidian",
+      "color_key": "Dravidian"
+    },
+    {
+      "name": "Nepali",
+      "value": 2926168,
+      "parent": "Indo-Aryan",
+      "color_key": "Indo-Aryan"
+    },
+    {
+      "name": "Sindhi",
+      "value": 2772264,
+      "parent": "Indo-Aryan",
+      "color_key": "Indo-Aryan"
+    },
+    {
+      "name": "Dogri",
+      "value": 2596767,
+      "parent": "Indo-Aryan",
+      "color_key": "Indo-Aryan"
+    },
+    {
+      "name": "Konkani",
+      "value": 2256502,
+      "parent": "Indo-Aryan",
+      "color_key": "Indo-Aryan"
+    },
+    {
+      "name": "Kurukh/Oraon",
+      "value": 1988350,
+      "parent": "Dravidian",
+      "color_key": "Dravidian"
+    },
+    {
+      "name": "Khandeshi",
+      "value": 1860236,
+      "parent": "Indo-Aryan",
+      "color_key": "Indo-Aryan"
+    },
+    {
+      "name": "Tulu",
+      "value": 1846427,
+      "parent": "Dravidian",
+      "color_key": "Dravidian"
+    },
+    {
+      "name": "Manipuri",
+      "value": 1761079,
+      "parent": "Tibeto-Burman",
+      "color_key": "Tibeto-Burman"
+    },
+    {
+      "name": "Bodo",
+      "value": 1482929,
+      "parent": "Tibeto-Burman",
+      "color_key": "Tibeto-Burman"
+    },
+    {
+      "name": "Khasi",
+      "value": 1431344,
+      "parent": "Austroasiatic",
+      "color_key": "Austroasiatic"
+    },
+    {
+      "name": "Ho",
+      "value": 1421418,
+      "parent": "Austroasiatic",
+      "color_key": "Austroasiatic"
+    },
+    {
+      "name": "Garo",
+      "value": 1145323,
+      "parent": "Tibeto-Burman",
+      "color_key": "Tibeto-Burman"
+    },
+    {
+      "name": "Mundari",
+      "value": 1128228,
+      "parent": "Austroasiatic",
+      "color_key": "Austroasiatic"
+    },
+    {
+      "name": "Tripuri",
+      "value": 1011294,
+      "parent": "Tibeto-Burman",
+      "color_key": "Tibeto-Burman"
+    },
+    {
+      "name": "Lushai/Mizo",
+      "value": 830846,
+      "parent": "Tibeto-Burman",
+      "color_key": "Tibeto-Burman"
+    },
+    {
+      "name": "Sanskrit",
+      "value": 24821,
+      "parent": "Indo-Aryan",
+      "color_key": "Indo-Aryan"
+    }
+  ]
+}
