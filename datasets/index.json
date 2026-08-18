@@ -271,6 +271,14 @@
       "source": "Census of India 2011, Table C-16 (grouped mother tongue totals)",
       "source_url": "https://censusindia.gov.in/census.website/data/census-tables",
       "category": "people"
+    },
+    {
+      "id": "water",
+      "title": "Freshwater withdrawals by country and sector",
+      "unit": "km³/year",
+      "source": "FAO AQUASTAT via Our World in Data (latest year per country)",
+      "source_url": "https://ourworldindata.org/water-use-stress",
+      "category": "environment"
     }
   ]
 }
