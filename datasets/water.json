@@ -1,0 +1,728 @@
+{
+  "title": "Freshwater withdrawals by country and sector",
+  "unit": "km³/year",
+  "source": "FAO AQUASTAT via Our World in Data (latest year per country, 2000+)",
+  "date": "2020s",
+  "items": [
+    {
+      "name": "India Agriculture",
+      "value": 585.39,
+      "parent": "India",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "India Industry",
+      "value": 14.46,
+      "parent": "India",
+      "color_key": "Industry"
+    },
+    {
+      "name": "India Municipal",
+      "value": 47.65,
+      "parent": "India",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "China Agriculture",
+      "value": 353.28,
+      "parent": "China",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "China Industry",
+      "value": 100.77,
+      "parent": "China",
+      "color_key": "Industry"
+    },
+    {
+      "name": "China Municipal",
+      "value": 114.43,
+      "parent": "China",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "United States Agriculture",
+      "value": 176.2,
+      "parent": "United States",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "United States Industry",
+      "value": 209.7,
+      "parent": "United States",
+      "color_key": "Industry"
+    },
+    {
+      "name": "United States Municipal",
+      "value": 58.39,
+      "parent": "United States",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "Indonesia Agriculture",
+      "value": 189.7,
+      "parent": "Indonesia",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "Indonesia Industry",
+      "value": 9.13,
+      "parent": "Indonesia",
+      "color_key": "Industry"
+    },
+    {
+      "name": "Indonesia Municipal",
+      "value": 23.8,
+      "parent": "Indonesia",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "Pakistan Agriculture",
+      "value": 168.5,
+      "parent": "Pakistan",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "Pakistan Industry",
+      "value": 1.37,
+      "parent": "Pakistan",
+      "color_key": "Industry"
+    },
+    {
+      "name": "Pakistan Municipal",
+      "value": 9.43,
+      "parent": "Pakistan",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "Iran Agriculture",
+      "value": 85.68,
+      "parent": "Iran",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "Iran Industry",
+      "value": 1.1,
+      "parent": "Iran",
+      "color_key": "Industry"
+    },
+    {
+      "name": "Iran Municipal",
+      "value": 6.18,
+      "parent": "Iran",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "Philippines Agriculture",
+      "value": 67.94,
+      "parent": "Philippines",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "Philippines Industry",
+      "value": 13.6,
+      "parent": "Philippines",
+      "color_key": "Industry"
+    },
+    {
+      "name": "Philippines Municipal",
+      "value": 9.5,
+      "parent": "Philippines",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "Mexico Agriculture",
+      "value": 68.52,
+      "parent": "Mexico",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "Mexico Industry",
+      "value": 7.95,
+      "parent": "Mexico",
+      "color_key": "Industry"
+    },
+    {
+      "name": "Mexico Municipal",
+      "value": 13.33,
+      "parent": "Mexico",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "Vietnam Agriculture",
+      "value": 77.59,
+      "parent": "Vietnam",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "Vietnam Industry",
+      "value": 3.07,
+      "parent": "Vietnam",
+      "color_key": "Industry"
+    },
+    {
+      "name": "Vietnam Municipal",
+      "value": 1.2,
+      "parent": "Vietnam",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "Japan Agriculture",
+      "value": 53.13,
+      "parent": "Japan",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "Japan Industry",
+      "value": 13.03,
+      "parent": "Japan",
+      "color_key": "Industry"
+    },
+    {
+      "name": "Japan Municipal",
+      "value": 13.53,
+      "parent": "Japan",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "Egypt Agriculture",
+      "value": 61.35,
+      "parent": "Egypt",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "Egypt Industry",
+      "value": 5.4,
+      "parent": "Egypt",
+      "color_key": "Industry"
+    },
+    {
+      "name": "Egypt Municipal",
+      "value": 10.75,
+      "parent": "Egypt",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "Brazil Agriculture",
+      "value": 41.34,
+      "parent": "Brazil",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "Brazil Industry",
+      "value": 10.2,
+      "parent": "Brazil",
+      "color_key": "Industry"
+    },
+    {
+      "name": "Brazil Municipal",
+      "value": 16.4,
+      "parent": "Brazil",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "Russia Agriculture",
+      "value": 18.64,
+      "parent": "Russia",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "Russia Industry",
+      "value": 29.03,
+      "parent": "Russia",
+      "color_key": "Industry"
+    },
+    {
+      "name": "Russia Municipal",
+      "value": 17.15,
+      "parent": "Russia",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "Turkey Agriculture",
+      "value": 56.04,
+      "parent": "Turkey",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "Turkey Industry",
+      "value": 1.29,
+      "parent": "Turkey",
+      "color_key": "Industry"
+    },
+    {
+      "name": "Turkey Municipal",
+      "value": 7.13,
+      "parent": "Turkey",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "Thailand Agriculture",
+      "value": 51.79,
+      "parent": "Thailand",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "Thailand Industry",
+      "value": 2.78,
+      "parent": "Thailand",
+      "color_key": "Industry"
+    },
+    {
+      "name": "Thailand Municipal",
+      "value": 2.74,
+      "parent": "Thailand",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "Uzbekistan Agriculture",
+      "value": 39.53,
+      "parent": "Uzbekistan",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "Uzbekistan Industry",
+      "value": 1.16,
+      "parent": "Uzbekistan",
+      "color_key": "Industry"
+    },
+    {
+      "name": "Uzbekistan Municipal",
+      "value": 2.22,
+      "parent": "Uzbekistan",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "Iraq Agriculture",
+      "value": 31.17,
+      "parent": "Iraq",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "Iraq Industry",
+      "value": 4.52,
+      "parent": "Iraq",
+      "color_key": "Industry"
+    },
+    {
+      "name": "Iraq Municipal",
+      "value": 6.73,
+      "parent": "Iraq",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "Argentina Agriculture",
+      "value": 27.86,
+      "parent": "Argentina",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "Argentina Industry",
+      "value": 3.99,
+      "parent": "Argentina",
+      "color_key": "Industry"
+    },
+    {
+      "name": "Argentina Municipal",
+      "value": 5.84,
+      "parent": "Argentina",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "Canada Agriculture",
+      "value": 3.86,
+      "parent": "Canada",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "Canada Industry",
+      "value": 27.39,
+      "parent": "Canada",
+      "color_key": "Industry"
+    },
+    {
+      "name": "Canada Municipal",
+      "value": 4.87,
+      "parent": "Canada",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "Bangladesh Agriculture",
+      "value": 31.5,
+      "parent": "Bangladesh",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "Bangladesh Industry",
+      "value": 0.77,
+      "parent": "Bangladesh",
+      "color_key": "Industry"
+    },
+    {
+      "name": "Bangladesh Municipal",
+      "value": 3.6,
+      "parent": "Bangladesh",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "Chile Agriculture",
+      "value": 32.14,
+      "parent": "Chile",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "Chile Industry",
+      "value": 1.81,
+      "parent": "Chile",
+      "color_key": "Industry"
+    },
+    {
+      "name": "Chile Municipal",
+      "value": 1.41,
+      "parent": "Chile",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "Italy Agriculture",
+      "value": 16.97,
+      "parent": "Italy",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "Italy Industry",
+      "value": 7.69,
+      "parent": "Italy",
+      "color_key": "Industry"
+    },
+    {
+      "name": "Italy Municipal",
+      "value": 9.13,
+      "parent": "Italy",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "Myanmar Agriculture",
+      "value": 29.43,
+      "parent": "Myanmar",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "Myanmar Industry",
+      "value": 0.5,
+      "parent": "Myanmar",
+      "color_key": "Industry"
+    },
+    {
+      "name": "Myanmar Municipal",
+      "value": 3.31,
+      "parent": "Myanmar",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "South Korea Agriculture",
+      "value": 17.21,
+      "parent": "South Korea",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "South Korea Industry",
+      "value": 4.8,
+      "parent": "South Korea",
+      "color_key": "Industry"
+    },
+    {
+      "name": "South Korea Municipal",
+      "value": 7.19,
+      "parent": "South Korea",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "Spain Agriculture",
+      "value": 18.96,
+      "parent": "Spain",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "Spain Industry",
+      "value": 5.5,
+      "parent": "Spain",
+      "color_key": "Industry"
+    },
+    {
+      "name": "Spain Municipal",
+      "value": 4.56,
+      "parent": "Spain",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "Sudan Agriculture",
+      "value": 25.91,
+      "parent": "Sudan",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "Sudan Industry",
+      "value": 0.07,
+      "parent": "Sudan",
+      "color_key": "Industry"
+    },
+    {
+      "name": "Sudan Municipal",
+      "value": 0.95,
+      "parent": "Sudan",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "Turkmenistan Agriculture",
+      "value": 24.34,
+      "parent": "Turkmenistan",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "Turkmenistan Industry",
+      "value": 1.22,
+      "parent": "Turkmenistan",
+      "color_key": "Industry"
+    },
+    {
+      "name": "Turkmenistan Municipal",
+      "value": 0.68,
+      "parent": "Turkmenistan",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "Peru Agriculture",
+      "value": 21.11,
+      "parent": "Peru",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "Peru Industry",
+      "value": 1.67,
+      "parent": "Peru",
+      "color_key": "Industry"
+    },
+    {
+      "name": "Peru Municipal",
+      "value": 3.14,
+      "parent": "Peru",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "Germany Agriculture",
+      "value": 1.07,
+      "parent": "Germany",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "Germany Industry",
+      "value": 14.01,
+      "parent": "Germany",
+      "color_key": "Industry"
+    },
+    {
+      "name": "Germany Municipal",
+      "value": 10.71,
+      "parent": "Germany",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "Kazakhstan Agriculture",
+      "value": 14.17,
+      "parent": "Kazakhstan",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "Kazakhstan Industry",
+      "value": 5.95,
+      "parent": "Kazakhstan",
+      "color_key": "Industry"
+    },
+    {
+      "name": "Kazakhstan Municipal",
+      "value": 4.84,
+      "parent": "Kazakhstan",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "France Agriculture",
+      "value": 2.52,
+      "parent": "France",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "France Industry",
+      "value": 16.64,
+      "parent": "France",
+      "color_key": "Industry"
+    },
+    {
+      "name": "France Municipal",
+      "value": 5.27,
+      "parent": "France",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "Colombia Agriculture",
+      "value": 19.94,
+      "parent": "Colombia",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "Colombia Industry",
+      "value": 1.01,
+      "parent": "Colombia",
+      "color_key": "Industry"
+    },
+    {
+      "name": "Colombia Municipal",
+      "value": 3.32,
+      "parent": "Colombia",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "Saudi Arabia Agriculture",
+      "value": 19.07,
+      "parent": "Saudi Arabia",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "Saudi Arabia Industry",
+      "value": 1.26,
+      "parent": "Saudi Arabia",
+      "color_key": "Industry"
+    },
+    {
+      "name": "Saudi Arabia Municipal",
+      "value": 3.05,
+      "parent": "Saudi Arabia",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "Venezuela Agriculture",
+      "value": 16.71,
+      "parent": "Venezuela",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "Venezuela Industry",
+      "value": 0.79,
+      "parent": "Venezuela",
+      "color_key": "Industry"
+    },
+    {
+      "name": "Venezuela Municipal",
+      "value": 5.12,
+      "parent": "Venezuela",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "South Africa Agriculture",
+      "value": 12.54,
+      "parent": "South Africa",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "South Africa Industry",
+      "value": 4.89,
+      "parent": "South Africa",
+      "color_key": "Industry"
+    },
+    {
+      "name": "South Africa Municipal",
+      "value": 3.68,
+      "parent": "South Africa",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "Afghanistan Agriculture",
+      "value": 19.91,
+      "parent": "Afghanistan",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "Afghanistan Industry",
+      "value": 0.17,
+      "parent": "Afghanistan",
+      "color_key": "Industry"
+    },
+    {
+      "name": "Afghanistan Municipal",
+      "value": 0.2,
+      "parent": "Afghanistan",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "Syria Agriculture",
+      "value": 12.22,
+      "parent": "Syria",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "Syria Industry",
+      "value": 0.51,
+      "parent": "Syria",
+      "color_key": "Industry"
+    },
+    {
+      "name": "Syria Municipal",
+      "value": 1.23,
+      "parent": "Syria",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "Madagascar Agriculture",
+      "value": 12.9,
+      "parent": "Madagascar",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "Madagascar Industry",
+      "value": 0.16,
+      "parent": "Madagascar",
+      "color_key": "Industry"
+    },
+    {
+      "name": "Madagascar Municipal",
+      "value": 0.39,
+      "parent": "Madagascar",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "Azerbaijan Agriculture",
+      "value": 12.02,
+      "parent": "Azerbaijan",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "Azerbaijan Industry",
+      "value": 0.6,
+      "parent": "Azerbaijan",
+      "color_key": "Industry"
+    },
+    {
+      "name": "Azerbaijan Municipal",
+      "value": 0.41,
+      "parent": "Azerbaijan",
+      "color_key": "Municipal"
+    },
+    {
+      "name": "Sri Lanka Agriculture",
+      "value": 11.31,
+      "parent": "Sri Lanka",
+      "color_key": "Agriculture"
+    },
+    {
+      "name": "Sri Lanka Industry",
+      "value": 0.83,
+      "parent": "Sri Lanka",
+      "color_key": "Industry"
+    },
+    {
+      "name": "Sri Lanka Municipal",
+      "value": 0.81,
+      "parent": "Sri Lanka",
+      "color_key": "Municipal"
+    }
+  ]
+}
