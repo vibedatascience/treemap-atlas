@@ -7,16 +7,26 @@ export class Treemap {
     this.grouped = opts.grouped !== false;
     this.tx = 0; this.ty = 0; this.scale = 1;
     this.hovered = null;
-    this.palette = ['#E60023','#0a3069','#0d9488','#b45309','#7c3aed','#be185d','#475569','#166534'];
+    this.palette = ['#E60023','#0a3069','#0d9488','#b45309','#7c3aed','#be185d','#475569','#166534','#0369a1','#a16207','#9f1239','#4d7c0f','#6d28d9','#78350f'];
+    this.minFont = opts.minFont || 7;
+    this.maxFont = opts.maxFont || 30;
     this.catColor = new Map();
     this.buildTree();
     this.bindEvents();
     this.resize();
   }
 
+  decode(t) {
+    return String(t).replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+  }
+
   buildTree() {
+    for (const d of this.data.items) d.name = this.decode(d.name);
     const items = this.data.items.filter(d => d.value > 0);
-    const cats = [...new Set(items.map(d => d.color_key || ''))].sort();
+    const catTotal = new Map();
+    for (const d of items) { const k = d.color_key || ''; catTotal.set(k, (catTotal.get(k) || 0) + d.value); }
+    const cats = [...catTotal.keys()].sort((a, b) => catTotal.get(b) - catTotal.get(a));
+    this.catTotal = catTotal;
     const custom = this.data.colors || {};
     cats.forEach((c, i) => this.catColor.set(c, custom[c] || this.palette[i % this.palette.length]));
     if (this.grouped && items.some(d => d.parent)) {
@@ -154,8 +164,9 @@ export class Treemap {
     for (let k = 1; k <= maxLines; k++) {
       const wrap = this.balancedWrap(words, k, measure);
       if (!wrap) continue;
-      let fs = Math.min(13 / s, maxW / wrap.width, (n.h - 3 / s) / (k * 1.15 + 0.4));
-      if (fs * s < 6.5) continue;
+      const cap = Math.max(13, Math.min(this.maxFont, Math.min(n.w, n.h) * s * 0.11));
+      let fs = Math.min(cap / s, maxW / wrap.width, (n.h - 3 / s) / (k * 1.15 + 0.4));
+      if (fs * s < this.minFont) continue;
       if (!best || fs > best.fs * 1.06) best = { fs, lines: wrap.lines, needH: fs * 1.15 * k + fs * 0.4 };
     }
     this._labelCache.set(key, best);
@@ -188,7 +199,9 @@ export class Treemap {
           fit.lines.forEach((l, li) => ctx.fillText(l, n.x + 4 / s, n.y + fit.fs + 3 / s + li * fit.fs * 1.15));
           if (n.h > fit.needH + fit.fs * 1.3 && ph > 30) {
             ctx.font = `${fit.fs * 0.82}px ui-monospace, monospace`;
-            ctx.fillText(this.fmt(n.value), n.x + 4 / s, n.y + fit.fs + 3 / s + fit.lines.length * fit.fs * 1.15);
+            const vt = this.fmt(n.value);
+            if (ctx.measureText(vt).width <= n.w - 8 / s)
+              ctx.fillText(vt, n.x + 4 / s, n.y + fit.fs + 3 / s + fit.lines.length * fit.fs * 1.15);
           }
         }
       }
@@ -202,7 +215,12 @@ export class Treemap {
             const fs = Math.min(13 / s, 15);
             ctx.font = `600 ${fs}px ui-monospace, monospace`;
             const pct = (100 * g.value / this.total).toFixed(1);
-            ctx.fillText(`${g.name.toUpperCase()} ${pct}%`, g.x + 3 / s, g.y + fs, g.w - 6 / s);
+            const avail = g.w - 6 / s;
+            let t = `${g.name.toUpperCase()} ${pct}%`;
+            if (ctx.measureText(t).width > avail) t = g.name.toUpperCase();
+            while (t.length > 3 && ctx.measureText(t + '\u2026').width > avail) t = t.slice(0, -1);
+            if (t !== g.name.toUpperCase() && !t.endsWith('%')) t += '\u2026';
+            ctx.fillText(t, g.x + 3 / s, g.y + fs);
           }
         }
       }

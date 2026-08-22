@@ -109,10 +109,15 @@ table.dt tr:hover td { background: #fef2f2; }
 #ylabel { min-width: 46px; margin-left: 0; color: var(--ink); font-weight: 600; }
 
 #stage { position: relative; }
-#yearoverlay { position: absolute; top: 10px; right: 18px; font-size: 44px; font-weight: 700; color: rgba(15,23,42,0.18); pointer-events: none; z-index: 4; letter-spacing: 1px; }
+#yearoverlay { position: absolute; bottom: 10px; right: 12px; font-size: 18px; font-weight: 700; color: var(--ink); background: rgba(255,255,255,0.88); border: 1px solid var(--line); border-radius: 4px; padding: 2px 8px; pointer-events: none; z-index: 4; }
+#yearoverlay:empty { display: none; }
+#legend .lp { color: #94a3b8; }
 #caption { padding: 12px 24px 20px; font-size: 13px; color: var(--ink); border-top: 1px solid var(--line); line-height: 1.6; }
 #caption b { font-weight: 600; }
-#stage { height: calc(100vh - 160px); }
+html, body { height: 100%; }
+body { display: flex; flex-direction: column; }
+#stage { flex: 1; min-height: 0; height: auto; }
+body:has(.grid) { display: block; height: auto; }
 
 .cgroup { display: inline-flex; align-items: center; gap: 7px; margin-right: 14px; }
 .clabel { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; }
@@ -138,3 +143,5 @@ header.site h2#dstitle { font-size: 21px; font-weight: 700; margin: 0; letter-sp
 .bfill { display: block; height: 100%; width: 0; transition: width 0.5s cubic-bezier(0.65,0,0.35,1); }
 .bval { width: 130px; min-width: 130px; color: var(--slate); font-variant-numeric: tabular-nums; }
 #howto { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border: 1px solid var(--line); border-radius: 50%; font-size: 10px; color: var(--ink); opacity: 0.6; cursor: help; margin-left: 8px; }
+#legend { flex-basis: 100%; padding-left: 2px; }
+.cgroup:has(#legend) { flex-wrap: wrap; }

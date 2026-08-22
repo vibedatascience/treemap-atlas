@@ -49,7 +49,7 @@ for (const d of reg.datasets) {
   grid.appendChild(card);
   const data = await fetch(`datasets/${d.id}.json`).then(r => r.json());
   const cv = card.querySelector('canvas');
-  const tm = new Treemap(cv, data, { grouped: false });
+  const tm = new Treemap(cv, data, { grouped: false, minFont: 6, maxFont: 16 });
   cv.style.pointerEvents = 'none';
 }
 document.getElementById('srclist').innerHTML = reg.datasets
