@@ -145,3 +145,26 @@ header.site h2#dstitle { font-size: 21px; font-weight: 700; margin: 0; letter-sp
 #howto { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border: 1px solid var(--line); border-radius: 50%; font-size: 10px; color: var(--ink); opacity: 0.6; cursor: help; margin-left: 8px; }
 #legend { flex-basis: 100%; padding-left: 2px; }
 .cgroup:has(#legend) { flex-wrap: wrap; }
+
+@media (max-width: 640px) {
+  header.site { padding: 10px 12px 6px; }
+  header.site h1 { font-size: 15px; }
+  header.site .tag { font-size: 11px; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .controls { padding: 6px 12px; gap: 6px; }
+  .controls button, .seg button { font-size: 11px; padding: 4px 8px; }
+  .cgroup { margin-right: 8px; gap: 5px; }
+  .clabel { display: none; }
+  #legend { flex-wrap: nowrap; overflow-x: auto; white-space: nowrap; scrollbar-width: none; padding-bottom: 2px; }
+  #legend::-webkit-scrollbar { display: none; }
+  #legend .lg { flex: 0 0 auto; }
+  #howto { display: none; }
+  #timebar { gap: 6px; }
+  #yslider { min-width: 0; flex: 1; }
+  #ylabel { min-width: 40px; }
+  #caption { display: none; }
+  #yearoverlay { font-size: 13px; padding: 1px 6px; bottom: 6px; right: 6px; }
+  .grid { grid-template-columns: 1fr; gap: 12px; padding: 12px; }
+  .chips { padding: 10px 12px 0; }
+  .bname { width: 110px; min-width: 110px; }
+  .bval { width: 90px; min-width: 90px; font-size: 11px; }
+}

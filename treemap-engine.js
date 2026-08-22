@@ -212,11 +212,12 @@ export class Treemap {
         if (pw > 60 && ph > 30) {
           if (s < 3.5) {
             ctx.fillStyle = '#0f172a';
-            const fs = Math.min(13 / s, 15);
-            ctx.font = `600 ${fs}px ui-monospace, monospace`;
             const pct = (100 * g.value / this.total).toFixed(1);
             const avail = g.w - 6 / s;
             let t = `${g.name.toUpperCase()} ${pct}%`;
+            let fs = Math.min(13 / s, 15);
+            ctx.font = `600 ${fs}px ui-monospace, monospace`;
+            while (fs * s > 9 && ctx.measureText(t).width > avail) { fs *= 0.92; ctx.font = `600 ${fs}px ui-monospace, monospace`; }
             if (ctx.measureText(t).width > avail) t = g.name.toUpperCase();
             while (t.length > 3 && ctx.measureText(t + '\u2026').width > avail) t = t.slice(0, -1);
             if (t !== g.name.toUpperCase() && !t.endsWith('%')) t += '\u2026';
