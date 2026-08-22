@@ -155,19 +155,34 @@ export class Treemap {
     if (this._labelCache.size > 4000) this._labelCache.clear();
     const ctx = this.ctx;
     const maxW = n.w - 8 / s;
-    const words = n.name.split(' ');
     const base = 12;
     ctx.font = `${base}px ui-monospace, monospace`;
     const measure = t => ctx.measureText(t).width / base;
+    const cap = Math.max(13, Math.min(this.maxFont, Math.min(n.w, n.h) * s * 0.11));
+    const tryText = text => {
+      const words = text.split(' ');
+      let best = null;
+      const maxLines = Math.min(3, words.length);
+      for (let k = 1; k <= maxLines; k++) {
+        const wrap = this.balancedWrap(words, k, measure);
+        if (!wrap) continue;
+        let fs = Math.min(cap / s, maxW / wrap.width, (n.h - 3 / s) / (k * 1.15 + 0.4));
+        if (fs * s < this.minFont) continue;
+        if (!best || fs > best.fs * 1.06) best = { fs, lines: wrap.lines, needH: fs * 1.15 * k + fs * 0.4 };
+      }
+      return best;
+    };
+    const m = n.name.match(/^(.*?)\s*\((.+)\)\s*$/);
+    const cands = [n.name];
+    if (m) { cands.push(m[2]); cands.push(m[1]); }
     let best = null;
-    const maxLines = Math.min(3, words.length);
-    for (let k = 1; k <= maxLines; k++) {
-      const wrap = this.balancedWrap(words, k, measure);
-      if (!wrap) continue;
-      const cap = Math.max(13, Math.min(this.maxFont, Math.min(n.w, n.h) * s * 0.11));
-      let fs = Math.min(cap / s, maxW / wrap.width, (n.h - 3 / s) / (k * 1.15 + 0.4));
-      if (fs * s < this.minFont) continue;
-      if (!best || fs > best.fs * 1.06) best = { fs, lines: wrap.lines, needH: fs * 1.15 * k + fs * 0.4 };
+    for (const c of cands) { best = tryText(c); if (best) break; }
+    if (!best) {
+      const fs = this.minFont / s;
+      const maxChars = Math.floor(maxW / (fs * measure('M')));
+      const short = (m ? m[2] : n.name).split(' ')[0];
+      if (maxChars >= 7 && n.h > fs * 1.6 && short.length > maxChars)
+        best = { fs, lines: [short.slice(0, maxChars - 1) + '\u2026'], needH: fs * 1.55 };
     }
     this._labelCache.set(key, best);
     return best;
@@ -183,9 +198,11 @@ export class Treemap {
     for (const n of this.leaves) {
       ctx.fillStyle = this.color(n);
       ctx.fillRect(n.x, n.y, n.w, n.h);
-      ctx.strokeStyle = '#ffffff';
-      ctx.lineWidth = 1 / s;
-      ctx.strokeRect(n.x, n.y, n.w, n.h);
+      if (n.w * s > 4 && n.h * s > 4) {
+        ctx.strokeStyle = '#ffffff';
+        ctx.lineWidth = 1 / s;
+        ctx.strokeRect(n.x, n.y, n.w, n.h);
+      }
       if (n === this.hovered) {
         ctx.fillStyle = 'rgba(255,255,255,0.25)';
         ctx.fillRect(n.x, n.y, n.w, n.h);
